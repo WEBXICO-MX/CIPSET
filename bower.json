@@ -1,0 +1,13 @@
+{
+  "name": "CIPSET",
+  "authors": [
+    "WEBXICO-MX <weiss.uttab@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
