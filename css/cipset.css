@@ -1,0 +1,7 @@
+h1,h2,h3 { text-align: center;} 
+p { text-align: justify;}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    margin: auto;
+}
+
