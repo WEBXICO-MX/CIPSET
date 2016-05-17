@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Galería &#124; Corporativo Integral para Soluciones en Tiempo (CIPSET)</title>
+        <title>CIPSET &#124; Galería</title>
         <meta charset="UTF-8">        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -160,7 +160,6 @@
         <footer>
             <p class="text-center">&copy; Copyright <?php echo date("Y"); ?> | Corporativo Integral para Soluciones en Tiempo | Powered By <a href="http://webxico.blogspot.mx/" target="_blank">WEBXICO</a></p>
         </footer>
-    </div>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
