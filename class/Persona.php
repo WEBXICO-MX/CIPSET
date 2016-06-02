@@ -46,6 +46,8 @@ class Persona {
         $this->apPaterno = "";
         $this->apMaterno = "";
         $this->fechaNacimiento = NULL;
+        $this->fechaRegistro = NULL;
+        $this->fechaModificacion = NULL;
         $this->sexo = "";
         $this->activo = false;
         $this->_existe = false;
@@ -73,6 +75,14 @@ class Persona {
 
     function getSexo() {
         return $this->sexo;
+    }
+
+    function getFechaRegistro() {
+        return $this->fechaRegistro;
+    }
+
+    function getFechaModificacion() {
+        return $this->fechaModificacion;
     }
 
     function getActivo() {
@@ -103,6 +113,14 @@ class Persona {
         $this->sexo = $sexo;
     }
 
+    function setFechaRegistro($fechaRegistro) {
+        $this->fechaRegistro = $fechaRegistro;
+    }
+
+    function setFechaModificacion($fechaModificacion) {
+        $this->fechaModificacion = $fechaModificacion;
+    }
+
     function setActivo($activo) {
         $this->activo = $activo;
     }
@@ -124,7 +142,9 @@ class Persona {
             $sql.= "ap_paterno = '$this->apPaterno',";
             $sql.= "ap_materno = '$this->apMaterno',";
             $sql.= "fecha_nacimiento = '$this->fechaNacimiento',";
-            $sql.= "activo = $this->activo,";
+            $sql.= "sexo = '$this->sexo',";
+            $sql.= "fecha_modificacion = NOW(),";
+            $sql.= "activo = $this->activo";
             $sql.= " WHERE id = $this->id";
             $count = UtilDB::ejecutaSQL($sql);
         }
@@ -142,6 +162,8 @@ class Persona {
             $this->apPaterno = $row['ap_paterno'];
             $this->apMaterno = $row['ap_materno'];
             $this->fechaNacimiento = $row['fecha_nacimiento'];
+            $this->fechaRegistro = $row['fecha_registro'];
+            $this->fechaModificacion = $row['fecha_modificacion'];
             $this->sexo = $row['sexo'];
             $this->activo = $row['activo'];
             $this->_existe = true;
