@@ -79,7 +79,7 @@ class TipoMedioComunicacion {
         } else {
             $sql = "UPDATE tipos_medios_comunicacion SET ";
             $sql.= "nombre = '$this->nombre',";
-            $sql.= "activo = $this->activo,";
+            $sql.= "activo = $this->activo";
             $sql.= " WHERE id = $this->id";
             $count = UtilDB::ejecutaSQL($sql);
         }
