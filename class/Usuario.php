@@ -142,7 +142,7 @@ class Usuario {
             $this->fechaRegistro = $row['fecha_registro'];
             $this->fechaModificacion = $row['fecha_modificacion'];
             $this->activo = $row['activo'];
-            $this->_existe = false;
+            $this->_existe = true;
         }
         $rst->closeCursor();
     }

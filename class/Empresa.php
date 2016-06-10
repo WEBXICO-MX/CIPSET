@@ -114,7 +114,7 @@ class Empresa {
                 $this->_existe = true;
             }
         } else {
-            $sql = "UPDATE ﻿empresas SET ";
+            $sql = "UPDATE empresas SET ";
             $sql.= "sector_productivo_id = " . ($this->sectorProductivoId->getId()) . ",";
             $sql.= "nombre = '$this->nombre',";
             $sql.= "fecha_modificacion = NOW(),";
@@ -127,7 +127,7 @@ class Empresa {
     }
 
     function cargar() {
-        $sql = "SELECT * FROM ﻿empresas WHERE id = $this->id";
+        $sql = "SELECT * FROM empresas WHERE id = $this->id";
         $rst = UtilDB::ejecutaConsulta($sql);
 
         foreach ($rst as $row) {
@@ -137,7 +137,7 @@ class Empresa {
             $this->fechaRegistro = $row['fecha_registro'];
             $this->fechaModificacion = $row['fecha_modificacion'];
             $this->activo = $row['activo'];
-            $this->_existe = false;
+            $this->_existe = true;
         }
         $rst->closeCursor();
     }

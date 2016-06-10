@@ -164,11 +164,11 @@ class Capacitacion {
             $this->categoriaCapacitacionId = new CategoriaCapacitacion($row['categoria_capacitacion_id']);
             $this->tipoCapacitacionId = new TipoCapacitacion($row['tipo_capacitacion_id']);
             $this->nombre = $row['nombre'];
-            $this->descripcion = $row['nombre'];
+            $this->descripcion = $row['descripcion'];
             $this->fechaRegistro = $row['fecha_registro'];
             $this->fechaModificacion = $row['fecha_modificacion'];
             $this->activo = $row['activo'];
-            $this->_existe = false;
+            $this->_existe = true;
         }
         $rst->closeCursor();
     }

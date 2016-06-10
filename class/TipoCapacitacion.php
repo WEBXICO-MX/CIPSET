@@ -71,7 +71,7 @@ class TipoCapacitacion {
 
         if (!$this->_existe) {
             $this->id = UtilDB::getSiguienteNumero("tipos_capacitaciones", "id");
-            $sql = "INSERT INTO ﻿﻿tipos_capacitaciones (id,nombre,activo) VALUES($this->id,'$this->nombre',$this->activo)";
+            $sql = "INSERT INTO tipos_capacitaciones (id,nombre,activo) VALUES($this->id,'$this->nombre',$this->activo)";
             $count = UtilDB::ejecutaSQL($sql);
             if ($count > 0) {
                 $this->_existe = true;
@@ -95,7 +95,7 @@ class TipoCapacitacion {
             $this->id = $row['id'];
             $this->nombre = $row['nombre'];
             $this->activo = $row['activo'];
-            $this->_existe = false;
+            $this->_existe = true;
         }
         $rst->closeCursor();
     }

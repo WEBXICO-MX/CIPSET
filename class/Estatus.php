@@ -95,7 +95,7 @@ class Estatus {
             $this->id = $row['id'];
             $this->nombre = $row['nombre'];
             $this->activo = $row['activo'];
-            $this->_existe = false;
+            $this->_existe = true;
         }
         $rst->closeCursor();
     }

@@ -133,7 +133,7 @@ class MedioComunicacion {
             $this->tipoMedioComunicacionId = new TipoMedioComunicacion($row['tipo_medio_comunicacion_id']);
             $this->valor = $row['valor'];
             $this->activo = $row['activo'];
-            $this->_existe = false;
+            $this->_existe = true;
         }
         $rst->closeCursor();
     }

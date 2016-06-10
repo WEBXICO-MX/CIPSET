@@ -149,7 +149,7 @@ class CalendarioCapacitacion {
                 $this->_existe = true;
             }
         } else {
-            $sql = "UPDATE ﻿calendarios_capacitaciones SET ";
+            $sql = "UPDATE calendarios_capacitaciones SET ";
             $sql.= "capacitacion_id = " . ($this->capacitacionId->getId()) . ",";
             $sql.= "fecha_inicio = '$this->fechaInicio',";
             $sql.= "fecha_fin = '$this->fechaFin',";
@@ -173,11 +173,11 @@ class CalendarioCapacitacion {
             $this->fechaInicio = $row['fecha_inicio'];
             $this->fechaFin = $row['fecha_fin'];
             $this->usuarioRegistro = new Usuario($row['usuario_registro']);
-            $this->usuarioModifico = new Usuario($row['usuario_modifico']);
+            $this->usuarioModifico = new Usuario($row['usuario_modifico'] != ""? $row['usuario_modifico']:0);
             $this->fechaRegistro = $row['fecha_registro'];
             $this->fechaModificacion = $row['fecha_modificacion'];
             $this->activo = $row['activo'];
-            $this->_existe = false;
+            $this->_existe = true;
         }
         $rst->closeCursor();
     }

@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     02/06/2016 14:02:16                          */
+/* Created on:     10/06/2016 13:25:57                          */
 /*==============================================================*/
 
 
@@ -154,7 +154,7 @@ create table CATEGORIAS_CAPACITACIONES
 (
    ID                   int not null,
    NOMBRE               varchar(50),
-   DESCRIPCION          varchar(200),
+   DESCRIPCION          varchar(500),
    ACTIVO               bit,
    primary key (ID)
 );

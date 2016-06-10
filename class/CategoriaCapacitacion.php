@@ -80,14 +80,14 @@ class CategoriaCapacitacion {
         $count = 0;
 
         if (!$this->_existe) {
-            $this->id = UtilDB::getSiguienteNumero("﻿categorias_capacitaciones", "id");
-            $sql = "INSERT INTO ﻿﻿﻿categorias_capacitaciones (id,nombre,descripcion,activo) VALUES($this->id,'$this->nombre','$this->descripcion',$this->activo)";
+            $this->id = UtilDB::getSiguienteNumero("categorias_capacitaciones", "id");
+            $sql = "INSERT INTO categorias_capacitaciones (id,nombre,descripcion,activo) VALUES($this->id,'$this->nombre','$this->descripcion',$this->activo)";
             $count = UtilDB::ejecutaSQL($sql);
             if ($count > 0) {
                 $this->_existe = true;
             }
         } else {
-            $sql = "UPDATE ﻿categorias_capacitaciones SET ";
+            $sql = "UPDATE categorias_capacitaciones SET ";
             $sql.= "nombre = '$this->nombre',";
             $sql.= "descripcion = '$this->descripcion',";
             $sql.= "activo = $this->activo";
@@ -99,15 +99,15 @@ class CategoriaCapacitacion {
     }
 
     function cargar() {
-        $sql = "SELECT * FROM ﻿categorias_capacitaciones WHERE id = $this->id";
+        $sql = "SELECT * FROM categorias_capacitaciones WHERE id = $this->id";
         $rst = UtilDB::ejecutaConsulta($sql);
 
         foreach ($rst as $row) {
             $this->id = $row['id'];
             $this->nombre = $row['nombre'];
-            $this->descripcion = $row['nombre'];
+            $this->descripcion = $row['descripcion'];
             $this->activo = $row['activo'];
-            $this->_existe = false;
+            $this->_existe = true;
         }
         $rst->closeCursor();
     }
