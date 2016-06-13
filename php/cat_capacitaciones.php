@@ -117,30 +117,41 @@ if (isset($_POST['xAccion'])) {
                                 <th>Capacitación</th>
                                 <th>Categoría</th>
                                 <th>Tipo</th>
+                                <th>Imagen</th>
                                 <th>Activo</th>
                             </tr>
                         </thead>
                         <tbody>
-<?php
-$sql = "SELECT c.id,cc.nombre AS categoria,t.nombre AS tipo, c.nombre,c.activo FROM capacitaciones AS c ";
-$sql .= "INNER JOIN categorias_capacitaciones AS cc ON cc.id = c.categoria_capacitacion_id ";
-$sql .= "INNER JOIN tipos_capacitaciones AS t ON t.id = c.tipo_capacitacion_id ";
-$sql .= "ORDER BY c.fecha_registro DESC";
+                            <?php
+                            $sql = "SELECT c.id,cc.nombre AS categoria,t.nombre AS tipo, c.nombre,c.img,c.activo FROM capacitaciones AS c ";
+                            $sql .= "INNER JOIN categorias_capacitaciones AS cc ON cc.id = c.categoria_capacitacion_id ";
+                            $sql .= "INNER JOIN tipos_capacitaciones AS t ON t.id = c.tipo_capacitacion_id ";
+                            $sql .= "ORDER BY c.fecha_registro DESC";
 
-$rst = UtilDB::ejecutaConsulta($sql);
-foreach ($rst as $row) {
-    ?>
+                            $rst = UtilDB::ejecutaConsulta($sql);
+                            foreach ($rst as $row) {
+                                ?>
                                 <tr>
-                                    <th><a href="javascript:void(0);" onclick="$('#txtCveCapacitacion').val(<?php echo($row['id']); ?>);
-                                                recargar();"><?php echo($row['id']); ?></a></th>
-                                    <th><?php echo($row['nombre']); ?></th>
-                                    <th><?php echo($row['categoria']); ?></th>
-                                    <th><?php echo($row['tipo']); ?></th>
-                                    <th><?php echo($row['activo'] == 1 ? "Si" : "No"); ?></th>                                    
+                                    <td><a href="javascript:void(0);" onclick="$('#txtCveCapacitacion').val(<?php echo($row['id']); ?>);
+                                        recargar();"><?php echo($row['id']); ?></a></td>
+                                    <td><?php echo($row['nombre']); ?></td>
+                                    <td><?php echo($row['categoria']); ?></td>
+                                    <td><?php echo($row['tipo']); ?></td>
+                                    <td><?php echo($row['img'] != NULL ? "<span class=\"glyphicon glyphicon-eye-open\"  style=\"font-size: 2em; cursor:pointer;\" data-toggle=\"popover\" data-content=\"<img src='../" . $row['img'] . "' alt='" . str_replace('"', "'", $row['nombre']) . "' class='img-responsive'/>\" ></span><br/><br/><a data-toggle=\"modal\" data-target=\"#myModal\" data-remote=\"cat_capacitaciones_upload_img.php?xCveCapacitacion=" . $row['id'] . "\" href=\"javascript:void(0);\">Cambiar imagen</a>" : "<a data-toggle=\"modal\" data-target=\"#myModal\" data-remote=\"cat_capacitaciones_upload_img.php?xCveCapacitacion=" . $row['id'] . "\" href=\"javascript:void(0);\">Subir imagen</a>"); ?></td>
+                                    <td><?php echo($row['activo'] == 1 ? "Si" : "No"); ?></td>                                    
                                 </tr>
-<?php } $rst->closeCursor(); ?>
+                            <?php } $rst->closeCursor(); ?>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-sm-12">
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -148,35 +159,54 @@ foreach ($rst as $row) {
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../bower_components/ckeditor/ckeditor.js"></script>        
         <script>
-                $(document).ready(function () {
+                                        $(document).ready(function () {
+                                            $('[data-toggle="popover"]').popover({placement: 'top', html: true, trigger: 'click hover'});
 
-                    CKEDITOR.replace("txtDescripcion");
+                                            /* Limpiar la ventana modal para volver a usar*/
+                                            $('body').on('hidden.bs.modal', '.modal', function () {
+                                                $(this).removeData('bs.modal');
+                                            });
 
-                });
-                function limpiar()
-                {
-                    $("#xAccion").val("0");
-                    $("#txtCveCapacitacion").val("0");
-                    $("#cmbCategoriaCapacitacion").val("0");
-                    $("#cmbTipoCapacitacion").val("0");
-                    $("#txtNombre").val("");
-                    $("#txtDescripcion").val("");
-                    $("#frmCapacitacion").submit();
-                }
+                                            CKEDITOR.replace("txtDescripcion");
 
-                function grabar()
-                {
-                    $("#xAccion").val("grabar");
-                    $("#frmCapacitacion").submit();
+                                        });
+                                        function limpiar()
+                                        {
+                                            $("#xAccion").val("0");
+                                            $("#txtCveCapacitacion").val("0");
+                                            $("#cmbCategoriaCapacitacion").val("0");
+                                            $("#cmbTipoCapacitacion").val("0");
+                                            $("#txtNombre").val("");
+                                            $("#txtDescripcion").val("");
+                                            $("#frmCapacitacion").submit();
+                                        }
 
-                }
+                                        function grabar()
+                                        {
+                                            $("#xAccion").val("grabar");
+                                            $("#frmCapacitacion").submit();
 
-                function recargar()
-                {
-                    $("#xAccion").val("recargar");
-                    $("#frmCapacitacion").submit();
+                                        }
 
-                }
+                                        function recargar()
+                                        {
+                                            $("#xAccion").val("recargar");
+                                            $("#frmCapacitacion").submit();
+
+                                        }
+
+                                        function subir()
+                                        {
+                                            if ($("#fileToUpload").val() !== "")
+                                            {
+                                                $("#xAccion2").val("upload");
+                                                $("#frmUpload").submit();
+                                            }
+                                            else
+                                            {
+                                                alert("No ha seleccionado un archivo para subir.");
+                                            }
+                                        }
         </script>
     </body>
 </html>

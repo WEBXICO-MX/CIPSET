@@ -10,6 +10,7 @@ class CategoriaCapacitacion {
     private $id;
     private $nombre;
     private $descripcion;
+    private $img;
     private $activo;
     private $_existe;
 
@@ -39,6 +40,7 @@ class CategoriaCapacitacion {
         $this->id = 0;
         $this->nombre = "";
         $this->descripcion = "";
+        $this->img = "";
         $this->activo = false;
         $this->_existe = false;
     }
@@ -53,6 +55,10 @@ class CategoriaCapacitacion {
 
     function getDescripcion() {
         return $this->descripcion;
+    }
+
+    function getImg() {
+        return $this->img;
     }
 
     function getActivo() {
@@ -71,6 +77,10 @@ class CategoriaCapacitacion {
         $this->descripcion = $descripcion;
     }
 
+    function setImg($img) {
+        $this->img = $img;
+    }
+
     function setActivo($activo) {
         $this->activo = $activo;
     }
@@ -81,7 +91,7 @@ class CategoriaCapacitacion {
 
         if (!$this->_existe) {
             $this->id = UtilDB::getSiguienteNumero("categorias_capacitaciones", "id");
-            $sql = "INSERT INTO categorias_capacitaciones (id,nombre,descripcion,activo) VALUES($this->id,'$this->nombre','$this->descripcion',$this->activo)";
+            $sql = "INSERT INTO categorias_capacitaciones (id,nombre,descripcion,img,activo) VALUES($this->id,'$this->nombre','$this->descripcion',NULL,$this->activo)";
             $count = UtilDB::ejecutaSQL($sql);
             if ($count > 0) {
                 $this->_existe = true;
@@ -106,6 +116,7 @@ class CategoriaCapacitacion {
             $this->id = $row['id'];
             $this->nombre = $row['nombre'];
             $this->descripcion = $row['descripcion'];
+            $this->img = $row['img'];
             $this->activo = $row['activo'];
             $this->_existe = true;
         }

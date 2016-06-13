@@ -20,6 +20,7 @@ class Capacitacion {
     private $tipoCapacitacionId;
     private $nombre;
     private $descripcion;
+    private $img;
     private $fechaRegistro;
     private $fechaModificacion;
     private $activo;
@@ -53,6 +54,7 @@ class Capacitacion {
         $this->tipoCapacitacionId = NULL;
         $this->nombre = "";
         $this->descripcion = "";
+        $this->img = "";
         $this->fechaRegistro = NULL;
         $this->fechaModificacion = NULL;
         $this->activo = false;
@@ -83,6 +85,10 @@ class Capacitacion {
 
     function getDescripcion() {
         return $this->descripcion;
+    }
+
+    function getImg() {
+        return $this->img;
     }
 
     function getFechaRegistro() {
@@ -117,6 +123,10 @@ class Capacitacion {
         $this->descripcion = $descripcion;
     }
 
+    function setImg($img) {
+        $this->img = $img;
+    }
+
     function setFechaRegistro($fechaRegistro) {
         $this->fechaRegistro = $fechaRegistro;
     }
@@ -135,7 +145,7 @@ class Capacitacion {
 
         if (!$this->_existe) {
             $this->id = UtilDB::getSiguienteNumero("capacitaciones", "id");
-            $sql = "INSERT INTO capacitaciones (id,categoria_capacitacion_id,tipo_capacitacion_id,nombre,descripcion,fecha_registro,fecha_modificacion,activo) VALUES($this->id," . ($this->categoriaCapacitacionId->getId()) . "," . ($this->tipoCapacitacionId->getId()) . ",'$this->nombre','$this->descripcion',NOW(),NULL,$this->activo)";
+            $sql = "INSERT INTO capacitaciones (id,categoria_capacitacion_id,tipo_capacitacion_id,nombre,descripcion,img,fecha_registro,fecha_modificacion,activo) VALUES($this->id," . ($this->categoriaCapacitacionId->getId()) . "," . ($this->tipoCapacitacionId->getId()) . ",'$this->nombre','$this->descripcion',NULL,NOW(),NULL,$this->activo)";
             $count = UtilDB::ejecutaSQL($sql);
             if ($count > 0) {
                 $this->_existe = true;
@@ -165,6 +175,7 @@ class Capacitacion {
             $this->tipoCapacitacionId = new TipoCapacitacion($row['tipo_capacitacion_id']);
             $this->nombre = $row['nombre'];
             $this->descripcion = $row['descripcion'];
+            $this->img = $row['img'];
             $this->fechaRegistro = $row['fecha_registro'];
             $this->fechaModificacion = $row['fecha_modificacion'];
             $this->activo = $row['activo'];

@@ -83,6 +83,7 @@ if (isset($_POST['xAccion'])) {
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
+                                <th>Imagen</th>
                                 <th>Activo</th>
                             </tr>
                         </thead>
@@ -93,14 +94,24 @@ if (isset($_POST['xAccion'])) {
                             foreach ($rst as $row) {
                                 ?>
                                 <tr>
-                                    <th><a href="javascript:void(0);" onclick="$('#txtCveCategoriaCapacitacion').val(<?php echo($row['id']); ?>);
-                                                recargar();"><?php echo($row['id']); ?></a></th>
-                                    <th><?php echo($row['nombre']); ?></th>
-                                    <th><?php echo($row['activo'] == 1 ? "Si" : "No"); ?></th>                                    
+                                    <td><a href="javascript:void(0);" onclick="$('#txtCveCategoriaCapacitacion').val(<?php echo($row['id']); ?>);
+                                                recargar();"><?php echo($row['id']); ?></a></td>
+                                    <td><?php echo($row['nombre']); ?></td>
+                                    <td><?php echo($row['img'] != NULL ? "<span class=\"glyphicon glyphicon-eye-open\"  style=\"font-size: 2em; cursor:pointer;\" data-toggle=\"popover\" data-content=\"<img src='../" . $row['img'] . "' alt='" . str_replace('"', "'", $row['nombre']) . "' class='img-responsive'/>\" ></span><br/><br/><a data-toggle=\"modal\" data-target=\"#myModal\" data-remote=\"cat_categorias_capacitaciones_upload_img.php?xCveCategoria=" . $row['id'] . "\" href=\"javascript:void(0);\">Cambiar imagen</a>" : "<a data-toggle=\"modal\" data-target=\"#myModal\" data-remote=\"cat_categorias_capacitaciones_upload_img.php?xCveCategoria=" . $row['id'] . "\" href=\"javascript:void(0);\">Subir imagen</a>"); ?></td>
+                                    <td><?php echo($row['activo'] == 1 ? "Si" : "No"); ?></td>                                    
                                 </tr>
                             <?php } $rst->closeCursor(); ?>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-sm-12">
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -109,6 +120,13 @@ if (isset($_POST['xAccion'])) {
         <script src="../bower_components/ckeditor/ckeditor.js"></script>
         <script>
             $(document).ready(function () {
+
+                $('[data-toggle="popover"]').popover({placement: 'top', html: true, trigger: 'click hover'});
+
+                /* Limpiar la ventana modal para volver a usar*/
+                $('body').on('hidden.bs.modal', '.modal', function () {
+                    $(this).removeData('bs.modal');
+                });
 
                 CKEDITOR.replace("txtDescripcion");
 
@@ -135,6 +153,19 @@ if (isset($_POST['xAccion'])) {
                 $("#xAccion").val("recargar");
                 $("#frmCategoriaCapacitacion").submit();
 
+            }
+
+            function subir()
+            {
+                if ($("#fileToUpload").val() !== "")
+                {
+                    $("#xAccion2").val("upload");
+                    $("#frmUpload").submit();
+                }
+                else
+                {
+                    alert("No ha seleccionado un archivo para subir.");
+                }
             }
         </script>
     </body>
