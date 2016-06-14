@@ -14,7 +14,6 @@ require_once '../class/Persona.php';
 require_once '../class/Estatus.php';
 require_once '../class/RegistroCapacitacion.php';
 
-$xCveCalendarioCapacitacion = 1;
 $resultado = "";
 $obj = json_decode($_POST['datos']);
 $xAccion = $_POST['xAccion'];
@@ -56,14 +55,14 @@ if ($xAccion == "grabarEmpresa") {
         $medio2->grabar();
 
         $registro = new RegistroCapacitacion();
-        $registro->setCalendarioCapacitacionId(new CalendarioCapacitacion($xCveCalendarioCapacitacion));
+        $registro->setCalendarioCapacitacionId(new CalendarioCapacitacion((int) $obj->{'xCveCalendarioCapacitacion'}));
         $registro->setPersonaId($persona);
         $registro->setEmpresaId(new Empresa((int) $obj->{'cmbEmpresa'}));
-        $registro->setEstatusId(new Estatus(1));//Nuevos
+        $registro->setEstatusId(new Estatus(1)); //Nuevos
         $registro->setActivo(true);
         $count = $registro->grabar();
         if ($count > 0) {
-            $resultado = "{\"resultado\":1,\"mensaje\":\"Se ha registrado a la capacitación con éxito\"}";
+            $resultado = "{\"resultado\":1,\"mensaje\":\"Se ha registrado a la capacitación con éxito, pronto nos pondremos en contacto con usted, muchas gracias.\"}";
         } else {
             $resultado = "{\"resultado\":0,\"mensaje\":\"Registro no realizado\"}";
         }

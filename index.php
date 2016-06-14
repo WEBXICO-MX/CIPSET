@@ -28,7 +28,7 @@ $origin = "";
                                     <h2>Desarrollo humano</h2>
                                     <img src="img/desarrollo_humano.jpg" alt="Desarrollo humano" class="img-responsive"/><br/>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    <p><a class="btn btn-success" href="php/desarrollo_humano.php" role="button"><span class="glyphicon glyphicon-calendar" style="font-size: 1.5em"></span> Ver capacitaciones &raquo;</a></p>
+                                    <p><a class="btn btn-success" href="php/capacitaciones.php?i=1" role="button"><span class="glyphicon glyphicon-calendar" style="font-size: 1.5em"></span> Ver capacitaciones &raquo;</a></p>
                                     <hr>
                                 </div>
                                 <div class="col-sm-6 col-md-4">

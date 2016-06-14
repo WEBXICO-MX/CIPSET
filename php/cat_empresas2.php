@@ -34,6 +34,13 @@ $rst = NULL;
             <button type="submit" class="btn btn-success" id="btnGrabar" name="btnGrabar">Guardar</button>
         </form>
         <!--  Empresa -->
+
+        <div class="alert fade in" id="div_mensaje2" style="display:none; margin-top: 25px;">
+            <a href="#" class="close" onclick="$('.alert').hide()" aria-label="close">&times;</a> 
+            <!--<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
+            <span id="mensaje2"></span>
+        </div>
+
     </div>
 </div>
 <div class="modal-footer">
