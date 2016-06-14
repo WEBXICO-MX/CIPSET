@@ -130,7 +130,7 @@ class Persona {
         $count = 0;
 
         if (!$this->_existe) {
-            $this->id = UtilDB::getSiguienteNumero("tipos_medios_comunicacion", "id");
+            $this->id = UtilDB::getSiguienteNumero("personas", "id");
             $sql = "INSERT INTO personas (id,nombre,ap_paterno,ap_materno,fecha_nacimiento,sexo,fecha_registro,fecha_modificacion,activo) VALUES($this->id,'$this->nombre','$this->apPaterno','$this->apMaterno','$this->fechaNacimiento','$this->sexo',NOW(),NULL,$this->activo)";
             $count = UtilDB::ejecutaSQL($sql);
             if ($count > 0) {
