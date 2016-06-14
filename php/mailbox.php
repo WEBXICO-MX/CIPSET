@@ -29,6 +29,7 @@ if (!isset($_SESSION['cve_usuario'])) {
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    <a href="home.php" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span> Atrás</a><br/><br/>
                     <div class="bs-example">
                         <ul class="nav nav-tabs" id="myTab">
                             <li class="active"><a href="#sectionA" data-toggle="tab"><span
