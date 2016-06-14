@@ -14,6 +14,15 @@ session_start();
         <div class="container">
             <?php include './footer.php'; ?>
             <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="alert fade in" id="div_mensaje" style="display:none; margin-top: 25px;">
+                        <a href="#" class="close" onclick="$('.alert').hide()" aria-label="close">&times;</a> 
+                        <!--<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
+                        <span id="mensaje"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <div class="bs-example">
                         <ul class="nav nav-tabs" id="myTab">
@@ -54,70 +63,6 @@ session_start();
         <!-- Cuerpo -->
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $.ajaxSetup({
-                    cache: false
-                });
-
-                getBuzon("#sectionA");
-
-                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-                    var target = $(e.target).attr("href");
-                    getBuzon(target);
-                });
-
-                /* Limpiar la ventana modal para volver a usar*/
-                $('body').on('hidden.bs.modal', '.modal', function () {
-                    $(this).removeData('bs.modal');
-                });
-
-            });
-
-            function getBuzon(target) {
-                var status = getStatus(target);
-                $.ajax({
-                    url: "mailbox_ajax.php?st=" + status,
-                    error: function (data) {
-                        alert("There was a problem");
-                    },
-                    success: function (data) {
-                        $(target).html(data);
-                    }
-                });
-            }
-
-            function changeStatus(status) {
-                $("#cambiar_status_status").val(status);
-                return true;
-            }
-
-            function getStatus(target) {
-                var status = 0;
-                switch (target) {
-                    case "#sectionA":
-                        status = 1;
-                        break;
-                    case "#sectionB":
-                        status = 2;
-                        break;
-                    case "#sectionC":
-                        status = 3;
-                        break;
-                    case "#sectionD":
-                        status = 4;
-                        break;
-                    case "#sectionE":
-                        status = 5;
-                        break;
-                    default:
-                        status = 0;
-
-                }
-
-                return status;
-
-            }
-        </script>
+        <script src="../js/php/mailbox.js"></script>
     </body>
 </html>

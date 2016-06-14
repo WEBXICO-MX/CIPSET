@@ -3,7 +3,7 @@ require_once '../class/UtilDB.php';
 
 $st = isset($_GET['st']) ? ((int) $_GET['st']) : 0;
 
-$sql = "SELECT rc.id, c.nombre AS capacitacion,c.fecha_inicio,c.fecha_fin,CONCAT(p.nombre,' ',p.ap_paterno,' ',p.ap_materno) AS nombre_completo,e.nombre AS empresa,est.nombre AS estatus,rc.fecha_registro,rc.fecha_modificacion,rc.activo ";
+$sql = "SELECT rc.id, c.nombre AS capacitacion,cc.fecha_inicio,cc.fecha_fin,CONCAT(p.nombre,' ',p.ap_paterno,' ',p.ap_materno) AS nombre_completo,e.nombre AS empresa,est.nombre AS estatus,rc.fecha_registro,rc.fecha_modificacion,rc.activo ";
 $sql .= "FROM registros_capacitaciones AS rc ";
 $sql .= "INNER JOIN calendarios_capacitaciones AS cc ON cc.id = rc.calendario_capacitacion_Id ";
 $sql .= "INNER JOIN capacitaciones AS c ON c.id = cc.capacitacion_id ";
@@ -34,7 +34,7 @@ if ($rst->rowCount() > 0) {
             foreach ($rst as $row) {
                 ?>
                 <tr>
-                    <td><?php echo($count); ?></td>
+                    <td><?php echo( ++$count); ?></td>
                     <td><a data-toggle="modal" data-target="#myModal" data-remote="mailbox_id.php?id=<?php echo($row['id']); ?>" href="javascript:void(0);"><?php echo($row['nombre_completo']); ?></a></td>
                     <td><?php echo($row['capacitacion']); ?></td>
                     <td>Fecha inicio: <?php echo($row['fecha_inicio']); ?> | Fecha fin: <?php echo($row['fecha_fin']); ?></td>
