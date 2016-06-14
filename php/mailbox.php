@@ -17,7 +17,7 @@ if (!isset($_SESSION['cve_usuario'])) {
     <body>
         <!-- Cuerpo -->
         <div class="container">
-            <?php include './footer.php'; ?>
+            <?php include './includeHeader2.php'; ?>
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
                     <div class="alert fade in" id="div_mensaje" style="display:none; margin-top: 25px;">

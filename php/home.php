@@ -14,7 +14,7 @@ if (!isset($_SESSION['cve_usuario'])) {
     </head>
     <body>
         <div class="container">
-            <?php include './footer.php'; ?>
+            <?php include './includeHeader2.php'; ?>
             <div class="row">
                 <div class="col-md-12">
                     <table style="width: 50%; margin: 0 auto; text-align: center">
@@ -49,11 +49,7 @@ if (!isset($_SESSION['cve_usuario'])) {
                                         Capacitaciones</a></td>
                             </tr>
                             <tr>
-                                <td><a href="">Tipos
-                                        Inscripciones</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="">
+                                <td><a href="cat_tipos_medios_comunicacion.php">
                                         Tipo Medios de Comunicación</a></td>
                             </tr>
                             <tr>
@@ -72,11 +68,14 @@ if (!isset($_SESSION['cve_usuario'])) {
                         </thead>
                         <tbody>
                             <tr>
-                                <td><a>Ir a buzón</a>&nbsp;&nbsp; <span class="glyphicon glyphicon-envelope" style="font-size: 35px;"></span></td>
+                                <td><a href="mailbox.php">Ir a buzón</a>&nbsp;&nbsp; <span class="glyphicon glyphicon-envelope" style="font-size: 35px;"></span></td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table><br />
                 </div>
+            </div>
+            <div class="row">
+                <?php include './includeFooter.php'; ?>
             </div>
         </div>
     </body>

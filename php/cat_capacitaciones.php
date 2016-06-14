@@ -51,7 +51,7 @@ if (isset($_POST['xAccion'])) {
     </head>
     <body>
         <div class="container">
-            <?php include './footer.php'; ?>
+            <?php include './includeHeader2.php'; ?>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <a href="home.php" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span> Atrás</a><br/>
@@ -107,7 +107,7 @@ if (isset($_POST['xAccion'])) {
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-8 col-md-offset-2">
                     <br/>
                     <br/>
                     <table class="table table-bordered table-striped table-hover table-responsive">
@@ -154,59 +154,13 @@ if (isset($_POST['xAccion'])) {
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <?php include './includeFooter.php'; ?>
+            </div>
         </div>
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../bower_components/ckeditor/ckeditor.js"></script>        
-        <script>
-                                        $(document).ready(function () {
-                                            $('[data-toggle="popover"]').popover({placement: 'top', html: true, trigger: 'click hover'});
-
-                                            /* Limpiar la ventana modal para volver a usar*/
-                                            $('body').on('hidden.bs.modal', '.modal', function () {
-                                                $(this).removeData('bs.modal');
-                                            });
-
-                                            CKEDITOR.replace("txtDescripcion");
-
-                                        });
-                                        function limpiar()
-                                        {
-                                            $("#xAccion").val("0");
-                                            $("#txtCveCapacitacion").val("0");
-                                            $("#cmbCategoriaCapacitacion").val("0");
-                                            $("#cmbTipoCapacitacion").val("0");
-                                            $("#txtNombre").val("");
-                                            $("#txtDescripcion").val("");
-                                            $("#frmCapacitacion").submit();
-                                        }
-
-                                        function grabar()
-                                        {
-                                            $("#xAccion").val("grabar");
-                                            $("#frmCapacitacion").submit();
-
-                                        }
-
-                                        function recargar()
-                                        {
-                                            $("#xAccion").val("recargar");
-                                            $("#frmCapacitacion").submit();
-
-                                        }
-
-                                        function subir()
-                                        {
-                                            if ($("#fileToUpload").val() !== "")
-                                            {
-                                                $("#xAccion2").val("upload");
-                                                $("#frmUpload").submit();
-                                            }
-                                            else
-                                            {
-                                                alert("No ha seleccionado un archivo para subir.");
-                                            }
-                                        }
-        </script>
+        <script src="../js/php/cat_capacitaciones.js"></script>
     </body>
 </html>

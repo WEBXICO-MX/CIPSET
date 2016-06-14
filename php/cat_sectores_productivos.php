@@ -46,7 +46,7 @@ if (isset($_POST['xAccion'])) {
     </head>
     <body>
         <div class="container">
-            <?php include './footer.php'; ?>
+            <?php include './includeHeader2.php'; ?>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <a href="home.php" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span> Atrás</a><br/>
@@ -98,31 +98,12 @@ if (isset($_POST['xAccion'])) {
                     </table>
                 </div>
             </div>
+            <div class="row">
+                <?php include './includeFooter.php'; ?>
+            </div>
         </div>
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script>
-                                        function limpiar()
-                                        {
-                                            $("#xAccion").val("0");
-                                            $("#txtCveSectorProductivo").val("0");
-                                            $("#txtNombre").val("");
-                                            $("#frmSectorProductivo").submit();
-                                        }
-
-                                        function grabar()
-                                        {
-                                            $("#xAccion").val("grabar");
-                                            $("#frmSectorProductivo").submit();
-
-                                        }
-
-                                        function recargar()
-                                        {
-                                            $("#xAccion").val("recargar");
-                                            $("#frmSectorProductivo").submit();
-
-                                        }
-        </script>
+        <script src="../js/php/cat_sectores_productivos.js"></script>
     </body>
 </html>
