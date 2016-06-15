@@ -93,7 +93,7 @@ if (isset($_POST['xAccion'])) {
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "SELECT * FROM usuarios ORDER BY fecha_registro ASC";
+                            $sql = "SELECT * FROM usuarios ORDER BY fecha_registro DESC";
                             $rst = UtilDB::ejecutaConsulta($sql);
                             foreach ($rst as $row) {
                                 ?>
