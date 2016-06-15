@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['cve_usuario'])) {
+if (!isset($_SESSION['dominio']) or !isset($_SESSION['cve_usuario'])) {
     header('Location:login.php');
     return;
 }
@@ -28,7 +28,7 @@ if (!isset($_SESSION['cve_usuario'])) {
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-sm-12">
                     <a href="home.php" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span> Atrás</a><br/><br/>
                     <div class="bs-example">
                         <ul class="nav nav-tabs" id="myTab">
@@ -64,6 +64,9 @@ if (!isset($_SESSION['cve_usuario'])) {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <?php include './includeFooter.php'; ?>
             </div>
         </div>
         <!-- Cuerpo -->

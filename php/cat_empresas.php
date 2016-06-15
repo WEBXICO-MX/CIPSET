@@ -4,7 +4,7 @@ require_once '../class/Empresa.php';
 require_once '../class/UtilDB.php';
 session_start();
 
-if (!isset($_SESSION['cve_usuario'])) {
+if (!isset($_SESSION['dominio']) or !isset($_SESSION['cve_usuario'])) {
     header('Location:login.php');
     return;
 }

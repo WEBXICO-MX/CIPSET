@@ -9,6 +9,7 @@ if ($rst->rowCount() > 0) {
     foreach ($rst as $row) {
         $_SESSION['cve_usuario'] = $row['id'];
         $_SESSION['nombre'] = $row['nombre'];
+        $_SESSION['dominio'] = 'cipset.com.mx';
         $resultado = "{\"resultado\":1,\"mensaje\":\"Acceso valido\"}";
         break;
     }
