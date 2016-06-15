@@ -8,10 +8,42 @@ function limpiar()
     $("#frmUsuario").submit();
 }
 
+function validar()
+{
+    var valido = true;
+    var msg = "";
+
+    if ($("#txtNombre").val() === "")
+    {
+        msg += "Ingrese un nombre completo al usuario\n";
+        valido = false;
+    }
+    if ($("#txtLogin").val() === "")
+    {
+        msg += "Ingrese un login al usuario\n";
+        valido = false;
+    }
+    if ($("#txtPassword").val() === "")
+    {
+        msg += "Ingrese un password al usuario\n";
+        valido = false;
+    }
+
+    if (!valido)
+    {
+        alert(msg);
+    }
+    return valido;
+
+}
+
 function grabar()
 {
-    $("#xAccion").val("grabar");
-    $("#frmUsuario").submit();
+    if (validar())
+    {
+        $("#xAccion").val("grabar");
+        $("#frmUsuario").submit();
+    }
 
 }
 

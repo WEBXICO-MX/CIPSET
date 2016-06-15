@@ -14,11 +14,42 @@ function limpiar()
     $("#frmCapacitacion").submit();
 }
 
+function validar()
+{
+    var valido = true;
+    var msg = "";
+    
+    if ($("#cmbCapacitacion").val() === "0")
+    {
+        msg += "Seleccione una capacitación\n";
+        valido = false;
+    }
+    if ($("#txtFechaInicio").val() === "")
+    {
+        msg += "Ingrese una fecha de inicio\n";
+        valido = false;
+    }
+    if ($("#txtFechaFin").val() === "")
+    {
+        msg += "Ingrese una fecha fin\n";
+        valido = false;
+    }
+
+    if (!valido)
+    {
+        alert(msg);
+    }
+    return valido;
+
+}
+
 function grabar()
 {
-    $("#xAccion").val("grabar");
-    $("#frmCapacitacion").submit();
-
+    if (validar())
+    {
+        $("#xAccion").val("grabar");
+        $("#frmCapacitacion").submit();
+    }
 }
 
 function recargar()
