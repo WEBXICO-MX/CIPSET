@@ -40,11 +40,11 @@ function validar()
         msg += "Ingrese un nombre a la capacitación\n";
         valido = false;
     }
-    if ($("#txtDescripcion").val() === "")
+    /*if ($("#txtDescripcion").val() === "")
     {
         msg += "Ingrese una descripción a la capacitación\n";
         valido = false;
-    }
+    }*/
 
     if (!valido)
     {
