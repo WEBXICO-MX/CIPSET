@@ -50,7 +50,7 @@ if (isset($_POST['xAccion'])) {
         <title>CIPSET &#124; Corporativo Integral para Soluciones en Tiempo &#124; Calendario de capacitaciones</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../bower_components/jquery-ui/themes/humanity/jquery-ui.min.css" rel="stylesheet"/>
+        <link href="../bower_components/jquery-ui/themes/blitzer/jquery-ui.min.css" rel="stylesheet"/>
         <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     </head>
     <body>
