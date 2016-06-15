@@ -41,13 +41,22 @@ $rst2 = NULL;
                         {
                             foreach($rst as $row)
                             {   echo("<h2>".$row['tipo']."(s)</h2>");
-                                $sql = "SELECT * FROM capacitaciones WHERE activo = 1 AND categoria_capacitacion_id = ".$categoria->getId()." AND tipo_capacitacion_id = ".$row['id'];
+                                $sql = "SELECT c.id,c.nombre, count(cc.capacitacion_id) AS calendario "; 
+                                $sql .= "FROM capacitaciones AS c ";
+                                $sql .= "LEFT JOIN calendarios_capacitaciones AS cc ON cc.capacitacion_id = c.id "; 
+                                $sql .= "WHERE c.activo = 1 AND c.categoria_capacitacion_id = ".$categoria->getId()." AND c.tipo_capacitacion_id = ".$row['id'];
+                                $sql .= " GROUP BY c.id,c.nombre,cc.capacitacion_id ";
+                                $sql .= "ORDER BY c.nombre";
+                                
                                 $rst2 = UtilDB::ejecutaConsulta($sql);
+                                
                                 if($rst2->rowCount() > 0)
                                 {   echo("<ul>");
                                     foreach($rst2 as $row2)
-                                    {
-                                        echo("<li><a href=\"calendario.php?i=".$i."&c=".$row2['id']."\">".$row2['nombre']."</a></li>");
+                                    {   if($row2['calendario'] > 0)
+                                        { echo("<li><a href=\"calendario.php?i=".$i."&c=".$row2['id']."\"><strong>".$row2['nombre']."</strong></a> <img src=\"../img/Map-Marker-Push-Pin-1-Right-Pink-icon.png\" alt=\"Tiene Calendario de capacitaciones\"></li>");}
+                                        else
+                                        { echo("<li><strong>".$row2['nombre']."</strong></li>"); }                                        
                                     }
                                     echo("</ul>");
                                 }
