@@ -13,11 +13,14 @@ $origin = "conocenos";
     <body>
         <?php include 'includeHeader.php'; ?>
         <div class="container">            
-            <div class="row row-offcanvas row-offcanvas-right">
-                <div class="col-xs-12 col-sm-12">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
                     <h1>Conócenos</h1>
+                    <img src="../img/conocenos.gif" alt="Conócenos" class="img-responsive" style="margin:0 auto;"/>
+                    <p>Esta es una oportunidad para presentarnos ante usted y poner a sus órdenes la empresa con razón social Corporativo Integral Para Soluciones En Tiempo S. A de C. V., que está formada por especialistas con amplia experiencia en diferentes disciplinas enfocadas a la industria del petróleo y gas; proporcionando servicios de ingeniería de proyectos, obra, servicios, capacitación y asistencia técnica en la construcción, operación, mantenimiento. </p>
+                    <p>Así mismo se ofrece entrenamiento y capacitación en la rama de perforación petrolera a través de planes de capacitación enfocados en 3 de las principales áreas de este sector industrial, tales como: Perforación, servicio a pozos, mantenimiento a equipos de perforación y perforación y terminación de pozos.</p>
                 </div>
-                <div class="col-xs-12 col-sm-12">
+                <div class="col-sm-12">
                     <?php include 'includeFooter.php'; ?>
                 </div>
             </div>
