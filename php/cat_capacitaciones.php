@@ -92,7 +92,7 @@ if (isset($_POST['xAccion'])) {
                         </div>
                         <div class="form-group">
                             <label for="txtNombre">Nombre:</label>
-                            <input type="text" name="txtNombre" id="txtNombre" placeholder="Ingrese un nombre" value="<?php echo($c->getNombre()); ?>" class="form-control"  maxlength="50"/>
+                            <input type="text" name="txtNombre" id="txtNombre" placeholder="Ingrese un nombre" value="<?php echo($c->getNombre()); ?>" class="form-control"  maxlength="100"/>
                         </div>
                         <div class="form-group">
                             <label for="txtDescripcion">* Descripción:</label><br/>
