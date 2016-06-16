@@ -8,8 +8,8 @@
 class UtilDB {
 
     private static $servername = "localhost";
-    private static $username = "root";
-    private static $password = "";
+    private static $username = "cipset_app";
+    private static $password = "M@rvel87.2016";
     private static $database = "cipset";
     private static $cnx = NULL;
 
