@@ -10,7 +10,8 @@ if (!isset($_SESSION['dominio']) or !isset($_SESSION['cve_usuario'])) {
 <html lang="es">
     <head>
         <title>CIPSET &#124; Corporativo Integral para Soluciones en Tiempo</title>
-        <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8">
+        <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     </head>
     <body>
         <div class="container">
