@@ -31,6 +31,7 @@ if (isset($origin) && $origin != "") {
                 </li>
                 <li <?php echo($origin == "galeria" ? "class=\"active\"" : ""); ?>><a href="<?php echo($path);?>php/galeria.php">Galería</a></li>
                 <li <?php echo($origin == "otros" ? "class=\"active\"" : ""); ?>><a href="#about">Otros</a></li>
+                <li <?php echo($origin == "contacto" ? "class=\"active\"" : ""); ?>><a href="<?php echo($path);?>php/contacto.php">Contacto</a></li>
             </ul>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
