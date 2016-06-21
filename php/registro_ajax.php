@@ -71,7 +71,7 @@ if ($xAccion == "grabarEmpresa") {
 
             $send = mail($to, $subject, $message, $headers);
 
-            $resultado = "{\"resultado\":1,\"mensaje\":\"Se ha registrado a la capacitación con éxito, pronto nos pondremos en contacto con usted, muchas gracias.\"}";
+            $resultado = "{\"resultado\":1,\"mensaje\":\"Se ha registrado con éxito a la capacitación <strong>".$registro->getCalendarioCapacitacionId()->getCapacitacionId()->getNombre()."</strong> con fecha de inicio <strong>".$registro->getCalendarioCapacitacionId()->getFechaInicio()."</strong> , hemos enviado un email a la dirección de correo electrónico que nos proporciono, pronto nos pondremos en contacto con usted para mas información, muchas gracias.\"}";
         } else {
             $resultado = "{\"resultado\":0,\"mensaje\":\"Registro no realizado\"}";
         }
