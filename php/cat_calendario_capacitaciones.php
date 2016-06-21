@@ -52,6 +52,11 @@ if (isset($_POST['xAccion'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../bower_components/jquery-ui/themes/blitzer/jquery-ui.min.css" rel="stylesheet"/>
         <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+        <style>
+            .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+                color: #2660A9 !important;
+            }
+        </style>
     </head>
     <body>
         <div class="container">

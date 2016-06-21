@@ -26,6 +26,10 @@ $rst = NULL;
         <link href="../css/cipset.css" rel="stylesheet"/>
         <style>
             #url_cambiar_empresa { font-size: 18px; font-weight: bold; display: none;}
+            
+            .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+                color: #2660A9 !important;
+            }
         </style>
     </head>
     <body>
