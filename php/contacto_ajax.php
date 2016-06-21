@@ -16,9 +16,9 @@ if ($xAccion == "enviarEmail") {
     $send = mail($to, $subject, $message, $headers);
 
     if ($send) {
-        $resultado = "{\"resultado\":1,\"mensaje\":\"Email enviado con éxito\"}";
+        $resultado = "{\"resultado\":1,\"mensaje\":\"Comentario y/o sugerencia enviada con éxito\"}";
     } else {
-        $resultado = "{\"resultado\":0,\"mensaje\":\"Email no enviado\"}";
+        $resultado = "{\"resultado\":0,\"mensaje\":\"Comentario y/o sugerencia no enviado\"}";
     }
 } else {
     $resultado = "{\"resultado\":0,\"mensaje\":\"Acción no valida\"}";
