@@ -1,5 +1,5 @@
 <?php
-$origin = "capacitacion";
+$origin = "contacto";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,6 +25,10 @@ $origin = "capacitacion";
                         <div class="form-group">
                             <label for="txtEmail">E-mail:</label>
                             <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Ingrese su email" maxlength="50">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtTel">Tel:</label>
+                            <input type="text" class="form-control" id="txtTel" name="txtTel" placeholder="Ingrese su tel o cel" maxlength="15">
                         </div>
                         <div class="form-group">
                             <label for="txtComentarios">Comentarios y/o sugerencias:</label><br/>
@@ -144,6 +148,11 @@ $origin = "capacitacion";
                 {
                     valido = false;
                     msg += "<li>Ingrese un email valido</li>";
+                }
+                if ($("#txtTel").val() === "")
+                {
+                    valido = false;
+                    msg += "<li>Ingrese un tel o cel</li>";
                 }
                 if ($("#txtComentarios").val() === "")
                 {

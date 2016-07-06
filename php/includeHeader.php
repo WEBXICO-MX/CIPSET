@@ -18,7 +18,7 @@ if (isset($origin) && $origin != "") {
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li <?php echo($origin == "" ? "class=\"active\"" : ""); ?>><a href="<?php echo($path); ?>index.php">Inicio</a></li>
+                <li <?php echo($origin == "" ? "class=\"active\"" : ""); ?>><a href="<?php echo($path); ?>index.php"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
                 <li <?php echo($origin == "conocenos" ? "class=\"active\"" : ""); ?>><a href="<?php echo($path); ?>php/conocenos.php">Conócenos</a></li>
                 <li class="dropdown <?php echo(($origin == "capacitacion" or $origin == "asesoria" or $origin == "proyectos" or $origin == "obras") ? "active" : ""); ?>">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios <span class="caret"></span></a>
@@ -29,9 +29,12 @@ if (isset($origin) && $origin != "") {
                         <li <?php echo($origin == "obras" ? "class=\"active\"" : ""); ?>><a href="#">Obras</a></li>
                     </ul>
                 </li>
-                <li <?php echo($origin == "galeria" ? "class=\"active\"" : ""); ?>><a href="<?php echo($path);?>php/galeria.php">Galería</a></li>
+                <li <?php echo($origin == "galeria" ? "class=\"active\"" : ""); ?>><a href="<?php echo($path); ?>php/galeria.php">Galería</a></li>
                 <li <?php echo($origin == "otros" ? "class=\"active\"" : ""); ?>><a href="#about">Otros</a></li>
-                <li <?php echo($origin == "contacto" ? "class=\"active\"" : ""); ?>><a href="<?php echo($path);?>php/contacto.php">Contacto</a></li>
+                <li <?php echo($origin == "contacto" ? "class=\"active\"" : ""); ?>><a href="<?php echo($path); ?>php/contacto.php">Contacto</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="php/login.php" target="_blank"><span class="glyphicon glyphicon-user"></span> Acceso</a></li>
             </ul>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->

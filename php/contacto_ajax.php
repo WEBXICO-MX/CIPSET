@@ -8,7 +8,7 @@ $send = false;
 if ($xAccion == "enviarEmail") {
     $to = 'contacto@cipset.com.mx';
     $subject = 'CIPSET - Corporativo Integral para Soluciones en Tiempo';
-    $message = $obj->{'txtNombre'}." con email: ".$obj->{'txtEmail'}.", comento lo siguiente:\n".$obj->{'txtComentarios'};
+    $message = $obj->{'txtNombre'}." con email: ".$obj->{'txtEmail'}." y tel: ".$obj->{'txtTel'}.",comento lo siguiente:\n".$obj->{'txtComentarios'};
     $headers = "From: ".$obj->{'txtEmail'} . "\r\n" .
             "Reply-To: weiss.uttab@gmail.com" . "\r\n" .
             "X-Mailer: PHP/" . phpversion();

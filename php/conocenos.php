@@ -18,7 +18,8 @@ $origin = "conocenos";
                     <h1>Conócenos</h1>
                     <img src="../img/conocenos.gif" alt="Conócenos" class="img-responsive" style="margin:0 auto;"/>
                     <p>Esta es una oportunidad para presentarnos ante usted y poner a sus órdenes la empresa con razón social Corporativo Integral Para Soluciones En Tiempo S. A de C. V., que está formada por especialistas con amplia experiencia en diferentes disciplinas enfocadas a la industria del petróleo y gas; proporcionando servicios de ingeniería de proyectos, obra, servicios, capacitación y asistencia técnica en la construcción, operación, mantenimiento. </p>
-                    <p>Así mismo se ofrece entrenamiento y capacitación en la rama de perforación petrolera a través de planes de capacitación enfocados en 3 de las principales áreas de este sector industrial, tales como: Perforación, servicio a pozos, mantenimiento a equipos de perforación y perforación y terminación de pozos.</p>
+                    <p>Así mismo se ofrece entrenamiento y capacitación en la rama de perforación petrolera a través de planes de capacitación enfocados en 3 de las principales áreas de este sector industrial, tales como: Perforación, servicio a pozos, mantenimiento a equipos de perforación y perforación y terminación de pozos.</p><br/>
+                    <p><strong>Email de contacto:</strong> <a href="mailto:contacto@cipset.com.mx">contacto@cipset.com.mx</a></p>
                 </div>
                 <div class="col-sm-12">
                     <?php include 'includeFooter.php'; ?>
