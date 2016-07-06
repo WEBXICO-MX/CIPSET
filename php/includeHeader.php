@@ -14,7 +14,8 @@ if (isset($origin) && $origin != "") {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo($path); ?>index.php">Corporativo Integral para Soluciones en Tiempo (CIPSET)</a>
+            <a class="navbar-brand visible-sm visible-md visible-lg" href="<?php echo($path); ?>index.php">Corporativo Integral para Soluciones en Tiempo (CIPSET)</a>
+            <a class="navbar-brand visible-xs" href="<?php echo($path); ?>index.php">CIPSET</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
