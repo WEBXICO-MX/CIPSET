@@ -34,7 +34,7 @@ if (isset($origin) && $origin != "") {
                 <li <?php echo($origin == "contacto" ? "class=\"active\"" : ""); ?>><a href="<?php echo($path); ?>php/contacto.php">Contacto</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="php/login.php" target="_blank"><span class="glyphicon glyphicon-user"></span> Acceso</a></li>
+                <li><a href="<?php echo($origin == "" ? "php/login.php":"login.php");?>" target="_blank"><span class="glyphicon glyphicon-user"></span> Acceso</a></li>
             </ul>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
