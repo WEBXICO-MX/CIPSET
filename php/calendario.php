@@ -104,8 +104,8 @@ $rst2 = NULL;
                     $('#datepicker').datepicker({
                         numberOfMonths: [3, 4],
                         dateFormat: 'yy-mm-dd',
-                        minDate: new Date(2016, 0, 1),
-                        maxDate: new Date(2016, 11, 31),
+                        minDate: new Date(2017, 0, 1),
+                        maxDate: new Date(2017, 11, 31),
                         beforeShowDay: available,
                         onSelect: buildLink
                     });
