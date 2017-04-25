@@ -30,7 +30,7 @@ $count = 0;
                         <div class="col-md-12">
                             <div class="row">
                                 <?php
-                                $sql = "SELECT * FROM categorias_capacitaciones WHERE activo = 1";
+                                $sql = "SELECT * FROM categorias_capacitaciones WHERE activo = 1 AND id IN (1,2,3,4,5)";
                                 $rst = UtilDB::ejecutaConsulta($sql);
 
                                 if ($rst->rowCount() > 0) {
