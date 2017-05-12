@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     10/06/2016 13:25:57                          */
+/* Created on:     12/05/2017 14:52:49                          */
 /*==============================================================*/
 
 
@@ -28,9 +28,21 @@ drop index INDEX_2 on EMPRESAS;
 
 drop table if exists EMPRESAS;
 
+drop index INDEX_1 on ESPECIALIDADES;
+
+drop table if exists ESPECIALIDADES;
+
 drop index INDEX_1 on ESTATUS;
 
 drop table if exists ESTATUS;
+
+drop index INDEX_1 on INSTRUCTORES;
+
+drop table if exists INSTRUCTORES;
+
+drop index INDEX_1 on INSTRUCTORES_CAPACITACIONES;
+
+drop table if exists INSTRUCTORES_CAPACITACIONES;
 
 drop index INDEX_1 on MEDIOS_COMUNICACION;
 
@@ -117,6 +129,7 @@ create table CAPACITACIONES
    TIPO_CAPACITACION_ID int,
    NOMBRE               varchar(100),
    DESCRIPCION          text,
+   IMG                  varchar(50),
    FECHA_REGISTRO       datetime,
    FECHA_MODIFICACION   datetime,
    ACTIVO               bit,
@@ -155,6 +168,7 @@ create table CATEGORIAS_CAPACITACIONES
    ID                   int not null,
    NOMBRE               varchar(50),
    DESCRIPCION          varchar(500),
+   IMG                  varchar(50),
    ACTIVO               bit,
    primary key (ID)
 );
@@ -198,6 +212,25 @@ create index INDEX_1 on EMPRESAS
 );
 
 /*==============================================================*/
+/* Table: ESPECIALIDADES                                        */
+/*==============================================================*/
+create table ESPECIALIDADES
+(
+   ID                   int not null,
+   NOMBRE               varchar(50),
+   ACTIVO               bit,
+   primary key (ID)
+);
+
+/*==============================================================*/
+/* Index: INDEX_1                                               */
+/*==============================================================*/
+create index INDEX_1 on ESPECIALIDADES
+(
+   ID
+);
+
+/*==============================================================*/
 /* Table: ESTATUS                                               */
 /*==============================================================*/
 create table ESTATUS
@@ -214,6 +247,52 @@ create table ESTATUS
 create index INDEX_1 on ESTATUS
 (
    ID
+);
+
+/*==============================================================*/
+/* Table: INSTRUCTORES                                          */
+/*==============================================================*/
+create table INSTRUCTORES
+(
+   ID                   int not null,
+   CVE_PERSONA          int,
+   CVE_ESPECIALIDAD     int,
+   RUTA_FOTO            varchar(50),
+   EXPERIENCIA          varchar(500),
+   FECHA_REGISTRO       datetime,
+   FECHA_MODIFICACION   datetime,
+   ACTIVO               bit,
+   primary key (ID)
+);
+
+/*==============================================================*/
+/* Index: INDEX_1                                               */
+/*==============================================================*/
+create index INDEX_1 on INSTRUCTORES
+(
+   ID
+);
+
+/*==============================================================*/
+/* Table: INSTRUCTORES_CAPACITACIONES                           */
+/*==============================================================*/
+create table INSTRUCTORES_CAPACITACIONES
+(
+   CVE_INSTRUCTOR       int not null,
+   CVE_CAPACITACION     int not null,
+   FECHA_REGISTRO       datetime,
+   FECHA_MODIFICACION   datetime,
+   ACTIVO               bit,
+   primary key (CVE_INSTRUCTOR, CVE_CAPACITACION)
+);
+
+/*==============================================================*/
+/* Index: INDEX_1                                               */
+/*==============================================================*/
+create index INDEX_1 on INSTRUCTORES_CAPACITACIONES
+(
+   CVE_INSTRUCTOR,
+   CVE_CAPACITACION
 );
 
 /*==============================================================*/
@@ -440,6 +519,18 @@ alter table CAPACITACIONES add constraint FK_REFERENCE_3 foreign key (TIPO_CAPAC
 
 alter table EMPRESAS add constraint FK_REFERENCE_1 foreign key (SECTOR_PRODUCTIVO_ID)
       references SECTORES_PRODUCTIVOS (ID) on delete restrict on update restrict;
+
+alter table INSTRUCTORES add constraint FK_REFERENCE_13 foreign key (CVE_PERSONA)
+      references PERSONAS (ID) on delete restrict on update restrict;
+
+alter table INSTRUCTORES add constraint FK_REFERENCE_14 foreign key (CVE_ESPECIALIDAD)
+      references ESPECIALIDADES (ID) on delete restrict on update restrict;
+
+alter table INSTRUCTORES_CAPACITACIONES add constraint FK_REFERENCE_15 foreign key (CVE_INSTRUCTOR)
+      references INSTRUCTORES (ID) on delete restrict on update restrict;
+
+alter table INSTRUCTORES_CAPACITACIONES add constraint FK_REFERENCE_16 foreign key (CVE_CAPACITACION)
+      references CAPACITACIONES (ID) on delete restrict on update restrict;
 
 alter table MEDIOS_COMUNICACION add constraint FK_REFERENCE_5 foreign key (PERSONA_ID)
       references PERSONAS (ID) on delete restrict on update restrict;
