@@ -38,6 +38,12 @@ if (!isset($_SESSION['dominio']) or !isset($_SESSION['cve_usuario'])) {
                             <tr>
                                 <td><a href="cat_empresas.php">Empresas</a></td>
                             </tr>
+                             <tr>
+                                <td><a href="cat_especialidad.php">Especialidad</a></td>
+                            </tr>
+                             <tr>
+                                 <td><a href="cat_instuctor.php">Instructor</a></td>
+                            </tr>
                             <tr>
                                 <td><a href="cat_sectores_productivos.php">Sectores
                                         Productivos</a></td>
