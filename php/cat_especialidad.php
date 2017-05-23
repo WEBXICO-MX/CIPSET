@@ -104,6 +104,6 @@ if (isset($_POST['xAccion'])) {
         </div>
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../js/php/cat_especialidad.js"></script>
+        <script src="../js/php/cat_especialidad.min.js"></script>
     </body>
 </html>

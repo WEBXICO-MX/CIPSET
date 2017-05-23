@@ -1,5 +1,5 @@
 <?php
-
+require_once 'ChromePhp.php';
 /**
  *
  * @author Roberto Eder Weiss Juárez
@@ -117,11 +117,9 @@ class InstructorCapacitacion {
             }
         } else {
             $sql = "UPDATE instructores_capacitaciones SET ";
-            $sql .= "cve_instructor = " . ($this->cveInstructor->getId()) . ",";
-            $sql .= "cve_capacitacion = " . ($this->cveCapacitacion->getId()) . ",";
             $sql .= "fecha_modificacion = NOW(),";
             $sql .= "activo = $this->activo";
-            $sql .= " WHERE id = $this->id";
+            $sql .= " WHERE cve_instructor = ".$this->cveInstructor->getId()." AND cve_capacitacion = ".$this->cveCapacitacion->getId();
             $count = UtilDB::ejecutaSQL($sql);
         }
 
@@ -129,7 +127,7 @@ class InstructorCapacitacion {
     }
 
     function cargar() {
-        $sql = "SELECT * FROM instructores_capacitaciones WHERE id = $this->id";
+        $sql = "SELECT * FROM instructores_capacitaciones WHERE cve_instructor = ".$this->cveInstructor->getId()." AND cve_capacitacion = ".$this->cveCapacitacion->getId();
         $rst = UtilDB::ejecutaConsulta($sql);
 
         foreach ($rst as $row) {
@@ -138,7 +136,7 @@ class InstructorCapacitacion {
             $this->fechaRegistro = $row['fecha_registro'];
             $this->fechaModificacion = $row['fecha_modificacion'];
             $this->activo = $row['activo'];
-            $this->_existe = TRUE;
+            $this->_existe = true;
         }
         $rst->closeCursor();
     }

@@ -40,6 +40,6 @@ if (isset($_SESSION['cve_usuario'])) {
             </div>
         </div>
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="../js/php/login.js"></script>
+        <script src="../js/php/login.min.js"></script>
     </body>
 </html>

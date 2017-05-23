@@ -56,7 +56,11 @@ class Persona {
     function getId() {
         return $this->id;
     }
-
+    
+    function getNombreCompleto() {
+        return $this->nombre.' '.$this->apPaterno.' '.$this->apMaterno;
+    }
+    
     function getNombre() {
         return $this->nombre;
     }

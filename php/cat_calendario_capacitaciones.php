@@ -167,6 +167,6 @@ if (isset($_POST['xAccion'])) {
         <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
         <script src="../bower_components/jquery-ui/ui/i18n/datepicker-es.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>     
-        <script src="../js/php/cat_calendario_capacitaciones.js"></script>
+        <script src="../js/php/cat_calendario_capacitaciones.min.js"></script>
     </body>
 </html>

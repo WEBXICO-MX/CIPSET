@@ -72,6 +72,6 @@ if (!isset($_SESSION['dominio']) or !isset($_SESSION['cve_usuario'])) {
         <!-- Cuerpo -->
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../js/php/mailbox.js"></script>
+        <script src="../js/php/mailbox.min.js"></script>
     </body>
 </html>

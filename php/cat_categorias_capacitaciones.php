@@ -121,6 +121,6 @@ if (isset($_POST['xAccion'])) {
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../bower_components/ckeditor/ckeditor.js"></script>
-        <script src="../js/php/cat_categorias_capacitaciones.js"></script>
+        <script src="../js/php/cat_categorias_capacitaciones.min.js"></script>
     </body>
 </html>
