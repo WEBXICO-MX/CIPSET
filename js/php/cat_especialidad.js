@@ -6,11 +6,31 @@ function limpiar()
     $("#frmEspecialidad").submit();
 }
 
+function validar()
+{
+    var valido = true;
+    var msg = "";
+
+    if ($("#txtNombre").val() === "")
+    {
+        msg += "Ingrese el nombre de la especialidad por favor.";
+        valido = false;
+    }
+
+    if (!valido)
+    {
+        alert(msg);
+    }
+
+    return valido;
+
+}
 function grabar()
 {
-    $("#xAccion").val("grabar");
-    $("#frmEspecialidad").submit();
-
+    if (validar()) {
+        $("#xAccion").val("grabar");
+        $("#frmEspecialidad").submit();
+    }
 }
 
 function recargar()

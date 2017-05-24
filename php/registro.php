@@ -150,6 +150,6 @@ $rst = NULL;
         <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
         <script src="../bower_components/jquery-ui/ui/i18n/datepicker-es.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../js/php/registro.js"></script>
+        <script src="../js/php/registro.min.js"></script>
     </body>
 </html>

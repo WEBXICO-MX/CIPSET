@@ -63,6 +63,8 @@ if (isset($_POST['xAccion'])) {
         <link href="../bower_components/jquery-ui/themes/blitzer/jquery-ui.min.css" rel="stylesheet"/>
         <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
         <style>
+            #url_agregar_especialidad { font-size: 18px; font-weight: bold; display: none;}
+
             .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
                 color: #2660A9 !important;
             }
@@ -70,7 +72,7 @@ if (isset($_POST['xAccion'])) {
     </head>
     <body>
         <div class="container">
-<?php include './includeHeader2.php'; ?>
+            <?php include './includeHeader2.php'; ?>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <a href="home.php" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span> Atrás</a><br/>
@@ -118,17 +120,19 @@ if (isset($_POST['xAccion'])) {
                         </div>
                         <div class="form-group">
                             <label for="cmbEspecialidad">Especialidad:</label>
-                            <select id="cmbPersona" name="cmbEspecialidad" class="form-control">
+                            <select id="cmbEspecialidad" name="cmbEspecialidad" class="form-control">
                                 <option value="0">---- Elija una opción por favor -----</option>
-<?php
-$sql = "SELECT * FROM especialidades WHERE activo = 1";
-$rst = UtilDB::ejecutaConsulta($sql);
-foreach ($rst as $row) {
-    echo("<option value=\"" . $row['id'] . "\" " . ($e->getCveEspecialidad() != NULL ? ($e->getCveEspecialidad()->getId() === $row['id'] ? "selected" : "") : "") . ">" . $row['nombre'] . "</option>");
-}
-$rst->closeCursor();
-?>
+                                <?php
+                                $sql = "SELECT * FROM especialidades WHERE activo = 1";
+                                $rst = UtilDB::ejecutaConsulta($sql);
+                                foreach ($rst as $row) {
+                                    echo("<option value=\"" . $row['id'] . "\" " . ($e->getCveEspecialidad() != NULL ? ($e->getCveEspecialidad()->getId() === $row['id'] ? "selected" : "") : "") . ">" . $row['nombre'] . "</option>");
+                                }
+                                echo("<option value='2017'>----- NO ENCUENTRO MI ESPECIALIDAD ----</option>");
+                                $rst->closeCursor();
+                                ?>
                             </select>
+                            <a data-toggle="modal" data-target="#myModal" data-remote="cat_especialidad2.php" href="javascript:void(0);" id="url_agregar_especialidad">Agregar especialidad</a>
                         </div>
                         <div class="form-group">
                             <label for="txtRutaFoto">Ruta foto:</label>
@@ -162,23 +166,23 @@ $rst->closeCursor();
                             </tr>
                         </thead>
                         <tbody>
-                                <?php
-                                $sql = "SELECT i.id,CONCAT(p.nombre,' ',p.ap_paterno,' ',p.ap_materno) AS nombre_completo, ";
-                                $sql .= "e.nombre AS especialidad,i.ruta_foto, i.activo ";
-                                $sql .= "FROM instructores AS i ";
-                                $sql .= "INNER JOIN personas AS p ON p.id =i.cve_persona ";
-                                $sql .= "INNER JOIN especialidades AS e ON e.id = i.cve_especialidad ";
-                                $sql .= "WHERE p.activo = 1";
-                                $rst = UtilDB::ejecutaConsulta($sql);
-                                foreach ($rst as $row) {
-                                    ?>
+                            <?php
+                            $sql = "SELECT i.id,CONCAT(p.nombre,' ',p.ap_paterno,' ',p.ap_materno) AS nombre_completo, ";
+                            $sql .= "e.nombre AS especialidad,i.ruta_foto, i.activo ";
+                            $sql .= "FROM instructores AS i ";
+                            $sql .= "INNER JOIN personas AS p ON p.id =i.cve_persona ";
+                            $sql .= "INNER JOIN especialidades AS e ON e.id = i.cve_especialidad ";
+                            $sql .= "WHERE p.activo = 1";
+                            $rst = UtilDB::ejecutaConsulta($sql);
+                            foreach ($rst as $row) {
+                                ?>
                                 <tr>
                                     <td><a href="javascript:void(0);" onclick="$('#txtCveInstructor').val(<?php echo($row['id']); ?>);recargar();"><?php echo($row['id']); ?></a></td>
                                     <td><?php echo($row['nombre_completo']); ?></td>
                                     <td><?php echo($row['especialidad']); ?></td>
                                     <td><?php echo($row['ruta_foto'] != NULL ? "<span class=\"glyphicon glyphicon-eye-open\"  style=\"font-size: 2em; cursor:pointer;\" data-toggle=\"popover\" data-content=\"<img src='../" . $row['ruta_foto'] . "' alt='" . str_replace('"', "'", $row['nombre_completo']) . "' class='img-responsive'/>\" ></span><br/><br/><a data-toggle=\"modal\" data-target=\"#myModal\" data-remote=\"cat_instructor_upload_img.php?id=" . $row['id'] . "\" href=\"javascript:void(0);\">Cambiar foto</a>" : "<a data-toggle=\"modal\" data-target=\"#myModal\" data-remote=\"cat_instructor_upload_img.php?id=" . $row['id'] . "\" href=\"javascript:void(0);\">Subir foto</a>"); ?></td>
                                     <?php
-                                    $sql2 = "SELECT c.NOMBRE AS capacitacion FROM INSTRUCTORES_CAPACITACIONES AS ic INNER JOIN capacitaciones AS c ON c.ID = ic.CVE_CAPACITACION WHERE ic.CVE_INSTRUCTOR = " . $row['id']." AND ic.activo = 1";
+                                    $sql2 = "SELECT c.NOMBRE AS capacitacion FROM INSTRUCTORES_CAPACITACIONES AS ic INNER JOIN capacitaciones AS c ON c.ID = ic.CVE_CAPACITACION WHERE ic.CVE_INSTRUCTOR = " . $row['id'] . " AND ic.activo = 1";
                                     $rst2 = UtilDB::ejecutaConsulta($sql2);
                                     $msg = "";
                                     if ($rst2->rowCount() > 0) {
@@ -194,7 +198,7 @@ $rst->closeCursor();
                                     <td><?php echo($msg != "" ? "<span class=\"glyphicon glyphicon-eye-open\"  style=\"font-size: 2em; cursor:pointer;\" data-toggle=\"popover\" data-content=\"" . $msg . "\" ></span><br/><br/><a href=\"cat_instructores_capacitaciones.php?i=" . $row['id'] . "\">Agregar capacitaciones</a>" : "<a href=\"cat_instructores_capacitaciones.php?i=" . $row['id'] . "\">Agregar capacitaciones</a>"); ?></td>
                                     <td><?php echo($row['activo'] == 1 ? "Si" : "No"); ?></td>                                    
                                 </tr>
-                                <?php } $rst->closeCursor(); ?>
+                            <?php } $rst->closeCursor(); ?>
                         </tbody>
                     </table>
                 </div>
@@ -209,7 +213,7 @@ $rst->closeCursor();
                 </div>
             </div>
             <div class="row">
-            <?php include './includeFooter.php'; ?>
+                <?php include './includeFooter.php'; ?>
             </div>
         </div>
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>
