@@ -11,7 +11,7 @@ $rst = NULL;
 <div class="modal-body">
     <div class="te">
         <!--  Empresa -->
-        <form action="" method="post" class="form-horizontal" id="frmRegistroEmpresa" name="frmRegistroEmpresa" role="form">
+        <form action="" method="post" id="frmRegistroEmpresa" name="frmRegistroEmpresa">
             <div class="form-group">
                 <label for="txtNombreEmpresa">Nombre:</label>
                 <input type="text" name="txtNombreEmpresa" id="txtNombreEmpresa" maxlength="50" class="form-control"/>
