@@ -6,7 +6,7 @@ $xAccion = $_POST['xAccion'];
 $send = false;
 
 if ($xAccion == "enviarEmail") {
-    $to = 'contacto@cipset.com.mx';
+    $to = 'contacto@cipset.net';
     $subject = 'CIPSET - Corporativo Integral para Soluciones en Tiempo';
     $message = $obj->{'txtNombre'}." con email: ".$obj->{'txtEmail'}." y tel: ".$obj->{'txtTel'}.",comento lo siguiente:\n".$obj->{'txtComentarios'};
     $headers = "From: ".$obj->{'txtEmail'} . "\r\n" .

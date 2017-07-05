@@ -65,7 +65,7 @@ if ($xAccion == "grabarEmpresa") {
             $to = $medio1->getValor();
             $subject = 'CIPSET - Corporativo Integral para Soluciones en Tiempo';
             $message = "Se ha registrado con éxito a la capacitación ".$registro->getCalendarioCapacitacionId()->getCapacitacionId()->getNombre()." con fecha de inicio: ".$registro->getCalendarioCapacitacionId()->getFechaInicio().", pronto nos pondremos en contacto con usted, muchas gracias.";
-            $headers = "From: contacto@cipset.com.mx" . "\r\n" .
+            $headers = "From: contacto@cipset.net" . "\r\n" .
                     "Reply-To: weiss.uttab@gmail.com" . "\r\n" .
                     "X-Mailer: PHP/" . phpversion();
 
