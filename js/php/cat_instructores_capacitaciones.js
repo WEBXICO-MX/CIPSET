@@ -5,7 +5,7 @@ function agregarCapacitacion(xCveCapacitacion, xCapacitacion, xCveInstructor, xI
             if (parseInt(data) !== 0)
             {
                 getTablaCapacitaciones(xCveInstructor);
-                alert('Capacitación "' + xCapacitacion + '" agregada con exito al instructor "' + xInstructor + '"');
+                alert('Capacitación "' + xCapacitacion + '" '+(xSeAgrega ? 'agregada' : 'eliminada')+' con exito al instructor "' + xInstructor + '"');
 
             }
         });
