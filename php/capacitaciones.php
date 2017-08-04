@@ -1,6 +1,7 @@
 <?php
 require_once '../class/UtilDB.php';
 require_once '../class/CategoriaCapacitacion.php';
+//require_once '../class/ChromePhp.php';
 
 $origin = "capacitacion";
 $i = isset($_GET['i']) != NULL ? ((int) $_GET['i']) : 0;
@@ -42,7 +43,7 @@ $rst2 = NULL;
                                     echo("<h2>" . $row['tipo'] . "(s)</h2>");
                                     $sql = "SELECT c.id,c.nombre, count(cc.capacitacion_id) AS calendario ";
                                     $sql .= "FROM capacitaciones AS c ";
-                                    $sql .= "LEFT JOIN calendarios_capacitaciones AS cc ON cc.capacitacion_id = c.id ";
+                                    $sql .= "LEFT JOIN calendarios_capacitaciones AS cc ON cc.capacitacion_id = c.id AND cc.activo = 1 ";
                                     $sql .= "WHERE c.activo = 1 AND c.categoria_capacitacion_id = " . $categoria->getId() . " AND c.tipo_capacitacion_id = " . $row['id'];
                                     $sql .= " GROUP BY c.id,c.nombre,cc.capacitacion_id ";
                                     $sql .= "ORDER BY c.nombre";
