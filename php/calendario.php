@@ -96,6 +96,7 @@ $rst2 = NULL;
             var rest1 = "getJsonCalendarioCapacitaciones.php?c=<?php echo($c); ?>";
             var availableDates = [];
             var json = null;
+            var anio_actual = <?php echo date("Y"); ?>;
 
             //("0" + date.getDate()).slice(-2) PARA EL DIA        
             //("0" + (date.getMonth() + 1)).slice(-2) PARA EL MES
@@ -139,8 +140,8 @@ $rst2 = NULL;
                     $('#datepicker').datepicker({
                         numberOfMonths: [3, 4],
                         dateFormat: 'yy-mm-dd',
-                        minDate: new Date(2017, 0, 1),
-                        maxDate: new Date(2017, 11, 31),
+                        minDate: new Date(anio_actual, 0, 1),
+                        maxDate: new Date(anio_actual, 11, 31),
                         beforeShowDay: available,
                         onSelect: buildLink
                     });
