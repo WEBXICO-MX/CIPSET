@@ -12,7 +12,7 @@
             <div class="checkbox">
                 <label><input type="checkbox" name="cbxActivo2" id="cbxActivo2" checked/>¿Activo?</label>
             </div>
-            <button type="submit" class="btn btn-success" id="btnGrabar2" name="btnGrabar2">Enviar</button>
+            <button type="submit" class="btn btn-success" id="btnGrabar2" name="btnGrabar2">Guardar</button>
         </form>
         <br/>
         <br/>
