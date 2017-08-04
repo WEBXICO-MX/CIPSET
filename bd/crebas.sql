@@ -1,552 +1,552 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     12/05/2017 14:52:49                          */
+/* Created on:     04/08/2017 11:44:38                          */
 /*==============================================================*/
 
 
-drop index INDEX_1 on CALENDARIOS_CAPACITACIONES;
+drop index index_1 on calendarios_capacitaciones;
 
-drop index INDEX_2 on CALENDARIOS_CAPACITACIONES;
+drop index index_2 on calendarios_capacitaciones;
 
-drop table if exists CALENDARIOS_CAPACITACIONES;
+drop table if exists calendarios_capacitaciones;
 
-drop index INDEX_1 on CAPACITACIONES;
+drop index index_1 on capacitaciones;
 
-drop index INDEX_2 on CAPACITACIONES;
+drop index index_2 on capacitaciones;
 
-drop index INDEX_3 on CAPACITACIONES;
+drop index index_3 on capacitaciones;
 
-drop table if exists CAPACITACIONES;
+drop table if exists capacitaciones;
 
-drop index INDEX_1 on CATEGORIAS_CAPACITACIONES;
+drop index index_1 on categorias_capacitaciones;
 
-drop table if exists CATEGORIAS_CAPACITACIONES;
+drop table if exists categorias_capacitaciones;
 
-drop index INDEX_1 on EMPRESAS;
+drop index index_1 on empresas;
 
-drop index INDEX_2 on EMPRESAS;
+drop index index_2 on empresas;
 
-drop table if exists EMPRESAS;
+drop table if exists empresas;
 
-drop index INDEX_1 on ESPECIALIDADES;
+drop index index_1 on especialidades;
 
-drop table if exists ESPECIALIDADES;
+drop table if exists especialidades;
 
-drop index INDEX_1 on ESTATUS;
+drop index index_1 on estatus;
 
-drop table if exists ESTATUS;
+drop table if exists estatus;
 
-drop index INDEX_1 on INSTRUCTORES;
+drop index index_1 on instructores;
 
-drop table if exists INSTRUCTORES;
+drop table if exists instructores;
 
-drop index INDEX_1 on INSTRUCTORES_CAPACITACIONES;
+drop index index_1 on instructores_capacitaciones;
 
-drop table if exists INSTRUCTORES_CAPACITACIONES;
+drop table if exists instructores_capacitaciones;
 
-drop index INDEX_1 on MEDIOS_COMUNICACION;
+drop index index_1 on medios_comunicacion;
 
-drop index INDEX_2 on MEDIOS_COMUNICACION;
+drop index index_2 on medios_comunicacion;
 
-drop index INDEX_3 on MEDIOS_COMUNICACION;
+drop index index_3 on medios_comunicacion;
 
-drop table if exists MEDIOS_COMUNICACION;
+drop table if exists medios_comunicacion;
 
-drop index INDEX_1 on PERSONAS;
+drop index index_1 on personas;
 
-drop table if exists PERSONAS;
+drop table if exists personas;
 
-drop index INDEX_1 on REGISTROS_CAPACITACIONES;
+drop index index_1 on registros_capacitaciones;
 
-drop index INDEX_2 on REGISTROS_CAPACITACIONES;
+drop index index_2 on registros_capacitaciones;
 
-drop index INDEX_3 on REGISTROS_CAPACITACIONES;
+drop index index_3 on registros_capacitaciones;
 
-drop index INDEX_4 on REGISTROS_CAPACITACIONES;
+drop index index_4 on registros_capacitaciones;
 
-drop index INDEX_5 on REGISTROS_CAPACITACIONES;
+drop index index_5 on registros_capacitaciones;
 
-drop table if exists REGISTROS_CAPACITACIONES;
+drop table if exists registros_capacitaciones;
 
-drop index INDEX_1 on SECTORES_PRODUCTIVOS;
+drop index index_1 on sectores_productivos;
 
-drop table if exists SECTORES_PRODUCTIVOS;
+drop table if exists sectores_productivos;
 
-drop index INDEX_1 on TIPOS_CAPACITACIONES;
+drop index index_1 on tipos_capacitaciones;
 
-drop table if exists TIPOS_CAPACITACIONES;
+drop table if exists tipos_capacitaciones;
 
-drop index INDEX_1 on TIPOS_MEDIOS_COMUNICACION;
+drop index index_1 on tipos_medios_comunicacion;
 
-drop table if exists TIPOS_MEDIOS_COMUNICACION;
+drop table if exists tipos_medios_comunicacion;
 
-drop index INDEX_1 on USUARIOS;
+drop index index_1 on usuarios;
 
-drop index INDEX_2 on USUARIOS;
+drop index index_2 on usuarios;
 
-drop table if exists USUARIOS;
+drop table if exists usuarios;
 
 /*==============================================================*/
-/* Table: CALENDARIOS_CAPACITACIONES                            */
+/* Table: calendarios_capacitaciones                            */
 /*==============================================================*/
-create table CALENDARIOS_CAPACITACIONES
+create table calendarios_capacitaciones
 (
-   ID                   int not null,
-   CAPACITACION_ID      int,
-   FECHA_INICIO         date,
-   FECHA_FIN            date,
-   USUARIO_REGISTRO     int,
-   USUARIO_MODIFICO     int,
-   FECHA_REGISTRO       datetime,
-   FECHA_MODIFICACION   datetime,
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   capacitacion_id      int,
+   fecha_inicio         date,
+   fecha_fin            date,
+   usuario_registro     int,
+   usuario_modifico     int,
+   fecha_registro       datetime,
+   fecha_modificacion   datetime,
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_2                                               */
+/* Index: index_2                                               */
 /*==============================================================*/
-create index INDEX_2 on CALENDARIOS_CAPACITACIONES
+create index index_2 on calendarios_capacitaciones
 (
-   CAPACITACION_ID
+   capacitacion_id
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on CALENDARIOS_CAPACITACIONES
+create index index_1 on calendarios_capacitaciones
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: CAPACITACIONES                                        */
+/* Table: capacitaciones                                        */
 /*==============================================================*/
-create table CAPACITACIONES
+create table capacitaciones
 (
-   ID                   int not null,
-   CATEGORIA_CAPACITACION_ID int,
-   TIPO_CAPACITACION_ID int,
-   NOMBRE               varchar(100),
-   DESCRIPCION          text,
-   IMG                  varchar(50),
-   FECHA_REGISTRO       datetime,
-   FECHA_MODIFICACION   datetime,
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   categoria_capacitacion_id int,
+   tipo_capacitacion_id int,
+   nombre               varchar(100),
+   descripcion          text,
+   img                  varchar(50),
+   fecha_registro       datetime,
+   fecha_modificacion   datetime,
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_3                                               */
+/* Index: index_3                                               */
 /*==============================================================*/
-create index INDEX_3 on CAPACITACIONES
+create index index_3 on capacitaciones
 (
-   TIPO_CAPACITACION_ID
+   tipo_capacitacion_id
 );
 
 /*==============================================================*/
-/* Index: INDEX_2                                               */
+/* Index: index_2                                               */
 /*==============================================================*/
-create index INDEX_2 on CAPACITACIONES
+create index index_2 on capacitaciones
 (
-   CATEGORIA_CAPACITACION_ID
+   categoria_capacitacion_id
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on CAPACITACIONES
+create index index_1 on capacitaciones
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: CATEGORIAS_CAPACITACIONES                             */
+/* Table: categorias_capacitaciones                             */
 /*==============================================================*/
-create table CATEGORIAS_CAPACITACIONES
+create table categorias_capacitaciones
 (
-   ID                   int not null,
-   NOMBRE               varchar(50),
-   DESCRIPCION          varchar(500),
-   IMG                  varchar(50),
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   nombre               varchar(50),
+   descripcion          varchar(500),
+   img                  varchar(50),
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on CATEGORIAS_CAPACITACIONES
+create index index_1 on categorias_capacitaciones
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: EMPRESAS                                              */
+/* Table: empresas                                              */
 /*==============================================================*/
-create table EMPRESAS
+create table empresas
 (
-   ID                   int not null,
-   SECTOR_PRODUCTIVO_ID int,
-   NOMBRE               varchar(50),
-   FECHA_REGISTRO       datetime,
-   FECHA_MODIFICACION   datetime,
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   sector_productivo_id int,
+   nombre               varchar(50),
+   fecha_registro       datetime,
+   fecha_modificacion   datetime,
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_2                                               */
+/* Index: index_2                                               */
 /*==============================================================*/
-create index INDEX_2 on EMPRESAS
+create index index_2 on empresas
 (
-   SECTOR_PRODUCTIVO_ID
+   sector_productivo_id
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on EMPRESAS
+create index index_1 on empresas
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: ESPECIALIDADES                                        */
+/* Table: especialidades                                        */
 /*==============================================================*/
-create table ESPECIALIDADES
+create table especialidades
 (
-   ID                   int not null,
-   NOMBRE               varchar(50),
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   nombre               varchar(50),
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on ESPECIALIDADES
+create index index_1 on especialidades
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: ESTATUS                                               */
+/* Table: estatus                                               */
 /*==============================================================*/
-create table ESTATUS
+create table estatus
 (
-   ID                   int not null,
-   NOMBRE               varchar(0),
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   nombre               varchar(0),
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on ESTATUS
+create index index_1 on estatus
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: INSTRUCTORES                                          */
+/* Table: instructores                                          */
 /*==============================================================*/
-create table INSTRUCTORES
+create table instructores
 (
-   ID                   int not null,
-   CVE_PERSONA          int,
-   CVE_ESPECIALIDAD     int,
-   RUTA_FOTO            varchar(50),
-   EXPERIENCIA          varchar(500),
-   FECHA_REGISTRO       datetime,
-   FECHA_MODIFICACION   datetime,
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   cve_persona          int,
+   cve_especialidad     int,
+   ruta_foto            varchar(50),
+   experiencia          varchar(500),
+   fecha_registro       datetime,
+   fecha_modificacion   datetime,
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on INSTRUCTORES
+create index index_1 on instructores
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: INSTRUCTORES_CAPACITACIONES                           */
+/* Table: instructores_capacitaciones                           */
 /*==============================================================*/
-create table INSTRUCTORES_CAPACITACIONES
+create table instructores_capacitaciones
 (
-   CVE_INSTRUCTOR       int not null,
-   CVE_CAPACITACION     int not null,
-   FECHA_REGISTRO       datetime,
-   FECHA_MODIFICACION   datetime,
-   ACTIVO               bit,
-   primary key (CVE_INSTRUCTOR, CVE_CAPACITACION)
+   cve_instructor       int not null,
+   cve_capacitacion     int not null,
+   fecha_registro       datetime,
+   fecha_modificacion   datetime,
+   activo               bit,
+   primary key (cve_instructor, cve_capacitacion)
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on INSTRUCTORES_CAPACITACIONES
+create index index_1 on instructores_capacitaciones
 (
-   CVE_INSTRUCTOR,
-   CVE_CAPACITACION
+   cve_instructor,
+   cve_capacitacion
 );
 
 /*==============================================================*/
-/* Table: MEDIOS_COMUNICACION                                   */
+/* Table: medios_comunicacion                                   */
 /*==============================================================*/
-create table MEDIOS_COMUNICACION
+create table medios_comunicacion
 (
-   ID                   int not null,
-   PERSONA_ID           int,
-   TIPO_MEDIO_COMUNICACION_ID int,
-   VALOR                varchar(50),
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   persona_id           int,
+   tipo_medio_comunicacion_id int,
+   valor                varchar(50),
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_3                                               */
+/* Index: index_3                                               */
 /*==============================================================*/
-create index INDEX_3 on MEDIOS_COMUNICACION
+create index index_3 on medios_comunicacion
 (
-   TIPO_MEDIO_COMUNICACION_ID
+   tipo_medio_comunicacion_id
 );
 
 /*==============================================================*/
-/* Index: INDEX_2                                               */
+/* Index: index_2                                               */
 /*==============================================================*/
-create index INDEX_2 on MEDIOS_COMUNICACION
+create index index_2 on medios_comunicacion
 (
-   PERSONA_ID
+   persona_id
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on MEDIOS_COMUNICACION
+create index index_1 on medios_comunicacion
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: PERSONAS                                              */
+/* Table: personas                                              */
 /*==============================================================*/
-create table PERSONAS
+create table personas
 (
-   ID                   int not null,
-   NOMBRE               varchar(50),
-   AP_PATERNO           varchar(50),
-   AP_MATERNO           varchar(50),
-   FECHA_NACIMIENTO     date,
-   SEXO                 char,
-   FECHA_REGISTRO       datetime,
-   FECHA_MODIFICACION   datetime,
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   nombre               varchar(50),
+   ap_paterno           varchar(50),
+   ap_materno           varchar(50),
+   fecha_nacimiento     date,
+   sexo                 char,
+   fecha_registro       datetime,
+   fecha_modificacion   datetime,
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on PERSONAS
+create index index_1 on personas
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: REGISTROS_CAPACITACIONES                              */
+/* Table: registros_capacitaciones                              */
 /*==============================================================*/
-create table REGISTROS_CAPACITACIONES
+create table registros_capacitaciones
 (
-   ID                   int not null,
-   CALENDARIO_CAPACITACION_ID int,
-   PERSONA_ID           int,
-   EMPRESA_ID           int,
-   ESTATUS_ID           int,
-   FECHA_REGISTRO       datetime,
-   FECHA_MODIFICACION   datetime,
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   calendario_capacitacion_id int,
+   persona_id           int,
+   empresa_id           int,
+   estatus_id           int,
+   fecha_registro       datetime,
+   fecha_modificacion   datetime,
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_5                                               */
+/* Index: index_5                                               */
 /*==============================================================*/
-create index INDEX_5 on REGISTROS_CAPACITACIONES
+create index index_5 on registros_capacitaciones
 (
-   ESTATUS_ID
+   estatus_id
 );
 
 /*==============================================================*/
-/* Index: INDEX_4                                               */
+/* Index: index_4                                               */
 /*==============================================================*/
-create index INDEX_4 on REGISTROS_CAPACITACIONES
+create index index_4 on registros_capacitaciones
 (
-   EMPRESA_ID
+   empresa_id
 );
 
 /*==============================================================*/
-/* Index: INDEX_3                                               */
+/* Index: index_3                                               */
 /*==============================================================*/
-create index INDEX_3 on REGISTROS_CAPACITACIONES
+create index index_3 on registros_capacitaciones
 (
-   PERSONA_ID
+   persona_id
 );
 
 /*==============================================================*/
-/* Index: INDEX_2                                               */
+/* Index: index_2                                               */
 /*==============================================================*/
-create index INDEX_2 on REGISTROS_CAPACITACIONES
+create index index_2 on registros_capacitaciones
 (
-   CALENDARIO_CAPACITACION_ID
+   calendario_capacitacion_id
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on REGISTROS_CAPACITACIONES
+create index index_1 on registros_capacitaciones
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: SECTORES_PRODUCTIVOS                                  */
+/* Table: sectores_productivos                                  */
 /*==============================================================*/
-create table SECTORES_PRODUCTIVOS
+create table sectores_productivos
 (
-   ID                   int not null,
-   NOMBRE               varchar(50),
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   nombre               varchar(50),
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on SECTORES_PRODUCTIVOS
+create index index_1 on sectores_productivos
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: TIPOS_CAPACITACIONES                                  */
+/* Table: tipos_capacitaciones                                  */
 /*==============================================================*/
-create table TIPOS_CAPACITACIONES
+create table tipos_capacitaciones
 (
-   ID                   int not null,
-   NOMBRE               varchar(50),
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   nombre               varchar(50),
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on TIPOS_CAPACITACIONES
+create index index_1 on tipos_capacitaciones
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: TIPOS_MEDIOS_COMUNICACION                             */
+/* Table: tipos_medios_comunicacion                             */
 /*==============================================================*/
-create table TIPOS_MEDIOS_COMUNICACION
+create table tipos_medios_comunicacion
 (
-   ID                   int not null,
-   NOMBRE               varchar(50),
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   nombre               varchar(50),
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on TIPOS_MEDIOS_COMUNICACION
+create index index_1 on tipos_medios_comunicacion
 (
-   ID
+   id
 );
 
 /*==============================================================*/
-/* Table: USUARIOS                                              */
+/* Table: usuarios                                              */
 /*==============================================================*/
-create table USUARIOS
+create table usuarios
 (
-   ID                   int not null,
-   NOMBRE               varchar(100),
-   LOGIN                varchar(15),
-   PASSWORD             varchar(15),
-   FECHA_REGISTRO       datetime,
-   FECHA_MODIFICACION   datetime,
-   ACTIVO               bit,
-   primary key (ID)
+   id                   int not null,
+   nombre               varchar(100),
+   login                varchar(15),
+   password             varchar(15),
+   fecha_registro       datetime,
+   fecha_modificacion   datetime,
+   activo               bit,
+   primary key (id)
 );
 
 /*==============================================================*/
-/* Index: INDEX_2                                               */
+/* Index: index_2                                               */
 /*==============================================================*/
-create index INDEX_2 on USUARIOS
+create index index_2 on usuarios
 (
-   LOGIN,
-   PASSWORD
+   login,
+   password
 );
 
 /*==============================================================*/
-/* Index: INDEX_1                                               */
+/* Index: index_1                                               */
 /*==============================================================*/
-create index INDEX_1 on USUARIOS
+create index index_1 on usuarios
 (
-   ID
+   id
 );
 
-alter table CALENDARIOS_CAPACITACIONES add constraint FK_REFERENCE_11 foreign key (USUARIO_REGISTRO)
-      references USUARIOS (ID) on delete restrict on update restrict;
+alter table calendarios_capacitaciones add constraint FK_reference_11 foreign key (usuario_registro)
+      references usuarios (id) on delete restrict on update restrict;
 
-alter table CALENDARIOS_CAPACITACIONES add constraint FK_REFERENCE_12 foreign key (USUARIO_MODIFICO)
-      references USUARIOS (ID) on delete restrict on update restrict;
+alter table calendarios_capacitaciones add constraint FK_reference_12 foreign key (usuario_modifico)
+      references usuarios (id) on delete restrict on update restrict;
 
-alter table CALENDARIOS_CAPACITACIONES add constraint FK_REFERENCE_4 foreign key (CAPACITACION_ID)
-      references CAPACITACIONES (ID) on delete restrict on update restrict;
+alter table calendarios_capacitaciones add constraint FK_reference_4 foreign key (capacitacion_id)
+      references capacitaciones (id) on delete restrict on update restrict;
 
-alter table CAPACITACIONES add constraint FK_REFERENCE_2 foreign key (CATEGORIA_CAPACITACION_ID)
-      references CATEGORIAS_CAPACITACIONES (ID) on delete restrict on update restrict;
+alter table capacitaciones add constraint FK_reference_2 foreign key (categoria_capacitacion_id)
+      references categorias_capacitaciones (id) on delete restrict on update restrict;
 
-alter table CAPACITACIONES add constraint FK_REFERENCE_3 foreign key (TIPO_CAPACITACION_ID)
-      references TIPOS_CAPACITACIONES (ID) on delete restrict on update restrict;
+alter table capacitaciones add constraint FK_reference_3 foreign key (tipo_capacitacion_id)
+      references tipos_capacitaciones (id) on delete restrict on update restrict;
 
-alter table EMPRESAS add constraint FK_REFERENCE_1 foreign key (SECTOR_PRODUCTIVO_ID)
-      references SECTORES_PRODUCTIVOS (ID) on delete restrict on update restrict;
+alter table empresas add constraint FK_reference_1 foreign key (sector_productivo_id)
+      references sectores_productivos (id) on delete restrict on update restrict;
 
-alter table INSTRUCTORES add constraint FK_REFERENCE_13 foreign key (CVE_PERSONA)
-      references PERSONAS (ID) on delete restrict on update restrict;
+alter table instructores add constraint FK_reference_13 foreign key (cve_persona)
+      references personas (id) on delete restrict on update restrict;
 
-alter table INSTRUCTORES add constraint FK_REFERENCE_14 foreign key (CVE_ESPECIALIDAD)
-      references ESPECIALIDADES (ID) on delete restrict on update restrict;
+alter table instructores add constraint FK_reference_14 foreign key (cve_especialidad)
+      references especialidades (id) on delete restrict on update restrict;
 
-alter table INSTRUCTORES_CAPACITACIONES add constraint FK_REFERENCE_15 foreign key (CVE_INSTRUCTOR)
-      references INSTRUCTORES (ID) on delete restrict on update restrict;
+alter table instructores_capacitaciones add constraint FK_reference_15 foreign key (cve_instructor)
+      references instructores (id) on delete restrict on update restrict;
 
-alter table INSTRUCTORES_CAPACITACIONES add constraint FK_REFERENCE_16 foreign key (CVE_CAPACITACION)
-      references CAPACITACIONES (ID) on delete restrict on update restrict;
+alter table instructores_capacitaciones add constraint FK_reference_16 foreign key (cve_capacitacion)
+      references capacitaciones (id) on delete restrict on update restrict;
 
-alter table MEDIOS_COMUNICACION add constraint FK_REFERENCE_5 foreign key (PERSONA_ID)
-      references PERSONAS (ID) on delete restrict on update restrict;
+alter table medios_comunicacion add constraint FK_reference_5 foreign key (persona_id)
+      references personas (id) on delete restrict on update restrict;
 
-alter table MEDIOS_COMUNICACION add constraint FK_REFERENCE_6 foreign key (TIPO_MEDIO_COMUNICACION_ID)
-      references TIPOS_MEDIOS_COMUNICACION (ID) on delete restrict on update restrict;
+alter table medios_comunicacion add constraint FK_reference_6 foreign key (tipo_medio_comunicacion_id)
+      references tipos_medios_comunicacion (id) on delete restrict on update restrict;
 
-alter table REGISTROS_CAPACITACIONES add constraint FK_REFERENCE_10 foreign key (ESTATUS_ID)
-      references ESTATUS (ID) on delete restrict on update restrict;
+alter table registros_capacitaciones add constraint FK_reference_10 foreign key (estatus_id)
+      references estatus (id) on delete restrict on update restrict;
 
-alter table REGISTROS_CAPACITACIONES add constraint FK_REFERENCE_7 foreign key (CALENDARIO_CAPACITACION_ID)
-      references CALENDARIOS_CAPACITACIONES (ID) on delete restrict on update restrict;
+alter table registros_capacitaciones add constraint FK_reference_7 foreign key (calendario_capacitacion_id)
+      references calendarios_capacitaciones (id) on delete restrict on update restrict;
 
-alter table REGISTROS_CAPACITACIONES add constraint FK_REFERENCE_8 foreign key (PERSONA_ID)
-      references PERSONAS (ID) on delete restrict on update restrict;
+alter table registros_capacitaciones add constraint FK_reference_8 foreign key (persona_id)
+      references personas (id) on delete restrict on update restrict;
 
-alter table REGISTROS_CAPACITACIONES add constraint FK_REFERENCE_9 foreign key (EMPRESA_ID)
-      references EMPRESAS (ID) on delete restrict on update restrict;
+alter table registros_capacitaciones add constraint FK_reference_9 foreign key (empresa_id)
+      references empresas (id) on delete restrict on update restrict;
 
