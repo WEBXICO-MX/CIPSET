@@ -56,7 +56,7 @@ $rst2 = NULL;
                                             if ($row2['calendario'] > 0) {
                                                 echo("<li><a href=\"calendario.php?i=" . $i . "&c=" . $row2['id'] . "\"><strong>" . $row2['nombre'] . "</strong></a> <img src=\"../img/Map-Marker-Push-Pin-1-Right-Pink-icon.png\" alt=\"Tiene Calendario de capacitaciones\"></li>");
                                             } else {
-                                                echo("<li><strong>" . $row2['nombre'] . "</strong></li>");
+                                                echo("<li><a href=\"calendario.php?i=" . $i . "&c=" . $row2['id'] . "\"><strong>" . $row2['nombre'] . "</strong></a></li>");
                                             }
                                         }
                                         echo("</ul>");
