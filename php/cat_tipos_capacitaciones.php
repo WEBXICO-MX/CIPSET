@@ -42,6 +42,7 @@ if (isset($_POST['xAccion'])) {
         <title>CIPSET &#124; Corporativo Integral para Soluciones en Tiempo &#124; Tipo(s) de capacitación</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet"/> 
         <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     </head>
     <body>
@@ -73,7 +74,7 @@ if (isset($_POST['xAccion'])) {
                 <div class="col-md-6 col-md-offset-3">
                     <br/>
                     <br/>
-                    <table class="table table-bordered table-striped table-hover table-responsive">
+                    <table id="tabla_tipos_capacitaciones" class="table table-bordered table-striped table-hover table-responsive">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -104,6 +105,15 @@ if (isset($_POST['xAccion'])) {
         </div>
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>        
         <script src="../js/php/cat_tipos_capacitaciones.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#tabla_tipos_capacitaciones').DataTable({responsive: true,
+                    "order": [[0, "desc"]]
+                });
+            });
+        </script>
     </body>
 </html>

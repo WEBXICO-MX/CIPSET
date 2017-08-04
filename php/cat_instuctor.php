@@ -61,6 +61,7 @@ if (isset($_POST['xAccion'])) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../bower_components/jquery-ui/themes/blitzer/jquery-ui.min.css" rel="stylesheet"/>
+        <link href="../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
         <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
         <style>
             #url_agregar_especialidad { font-size: 18px; font-weight: bold; display: none;}
@@ -154,7 +155,7 @@ if (isset($_POST['xAccion'])) {
                 <div class="col-md-6 col-md-offset-3">
                     <br/>
                     <br/>
-                    <table class="table table-bordered table-striped table-hover table-responsive">
+                    <table id="tabla_instructores" class="table table-bordered table-striped table-hover table-responsive">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -221,6 +222,15 @@ if (isset($_POST['xAccion'])) {
         <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
         <script src="../bower_components/jquery-ui/ui/i18n/datepicker-es.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>        
         <script src="../js/php/cat_instructor.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#tabla_instructores').DataTable({responsive: true,
+                    "order": [[0, "desc"]]
+                });
+            });
+        </script>
     </body>
 </html>

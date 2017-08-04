@@ -3,7 +3,7 @@ require_once '../class/CategoriaCapacitacion.php';
 require_once '../class/UtilDB.php';
 session_start();
 
-if (!isset($_SESSION['dominio']) or !isset($_SESSION['cve_usuario'])) {
+if (!isset($_SESSION['dominio']) or ! isset($_SESSION['cve_usuario'])) {
     header('Location:login.php');
     return;
 }
@@ -43,6 +43,7 @@ if (isset($_POST['xAccion'])) {
         <title>CIPSET &#124; Corporativo Integral para Soluciones en Tiempo &#124; Categoria(s) de capacitación</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
         <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     </head>
     <body>
@@ -78,7 +79,7 @@ if (isset($_POST['xAccion'])) {
                 <div class="col-md-8 col-md-offset-2">
                     <br/>
                     <br/>
-                    <table class="table table-bordered table-striped table-hover table-responsive">
+                   <table id="tabla_categorias_capacitaciones" class="table table-bordered table-striped table-hover table-responsive">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -95,7 +96,7 @@ if (isset($_POST['xAccion'])) {
                                 ?>
                                 <tr>
                                     <td><a href="javascript:void(0);" onclick="$('#txtCveCategoriaCapacitacion').val(<?php echo($row['id']); ?>);
-                                                recargar();"><?php echo($row['id']); ?></a></td>
+                                            recargar();"><?php echo($row['id']); ?></a></td>
                                     <td><?php echo($row['nombre']); ?></td>
                                     <td><?php echo($row['img'] != NULL ? "<span class=\"glyphicon glyphicon-eye-open\"  style=\"font-size: 2em; cursor:pointer;\" data-toggle=\"popover\" data-content=\"<img src='../" . $row['img'] . "' alt='" . str_replace('"', "'", $row['nombre']) . "' class='img-responsive'/>\" ></span><br/><br/><a data-toggle=\"modal\" data-target=\"#myModal\" data-remote=\"cat_categorias_capacitaciones_upload_img.php?xCveCategoria=" . $row['id'] . "\" href=\"javascript:void(0);\">Cambiar imagen</a>" : "<a data-toggle=\"modal\" data-target=\"#myModal\" data-remote=\"cat_categorias_capacitaciones_upload_img.php?xCveCategoria=" . $row['id'] . "\" href=\"javascript:void(0);\">Subir imagen</a>"); ?></td>
                                     <td><?php echo($row['activo'] == 1 ? "Si" : "No"); ?></td>                                    
@@ -121,6 +122,15 @@ if (isset($_POST['xAccion'])) {
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../bower_components/ckeditor/ckeditor.js"></script>
+        <script src="../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
         <script src="../js/php/cat_categorias_capacitaciones.min.js"></script>
+        <script>
+                $(document).ready(function () {
+                    $('#tabla_categorias_capacitaciones').DataTable({responsive: true,
+                        "order": [[0, "desc"]]
+                    });
+                });
+        </script>
     </body>
 </html>
