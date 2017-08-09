@@ -35,7 +35,7 @@ if (isset($_POST["xAccion"])) {
             </thead>
             <tbody>
                 <?php
-                $sql = "SELECT c.id,cc.nombre AS categoria,t.nombre AS tipo, c.nombre , (SELECT cve_instructor FROM INSTRUCTORES_CAPACITACIONES WHERE activo = 1 AND cve_instructor = " . $instructor->getId() . " AND cve_capacitacion = c.id) AS accion ";
+                $sql = "SELECT c.id,cc.nombre AS categoria,t.nombre AS tipo, c.nombre , (SELECT cve_instructor FROM instructores_capacitaciones WHERE activo = 1 AND cve_instructor = " . $instructor->getId() . " AND cve_capacitacion = c.id) AS accion ";
                 $sql .= "FROM capacitaciones AS c ";
                 $sql .= "INNER JOIN categorias_capacitaciones AS cc ON cc.id = c.categoria_capacitacion_id ";
                 $sql .= "INNER JOIN tipos_capacitaciones AS t ON t.id = c.tipo_capacitacion_id ";
