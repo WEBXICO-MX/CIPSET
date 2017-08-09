@@ -53,9 +53,9 @@ if (isset($_POST["xAccion"])) {
                         <td>
                             <?php
                             if ($row['accion'] == "") {
-                                echo("<a href=\"javascript:void(0);\" onclick=\"agregarCapacitacion(" . $row['id'] . ",'" . $row['nombre'] . "'," . $instructor->getId() . ",'" . $instructor->getCvePersona()->getNombreCompleto() . "',true);\" class=\"btn btn-success\">Agregar</a>");
+                                echo("<a href=\"javascript:void(0);\" onclick=\"agregarCapacitacion(" . $row['id'] . ",'" . $row['nombre'] . "'," . $instructor->getId() . ",'" . $instructor->getCvePersona()->getNombreCompleto() . "',true);\" class=\"btn btn-success\"><span class=\"glyphicon glyphicon-plus\"></span> Agregar</a>");
                             } else {
-                                echo("<a href=\"javascript:void(0);\" onclick=\"agregarCapacitacion(" . $row['id'] . ",'" . $row['nombre'] . "'," . $instructor->getId() . ",'" . $instructor->getCvePersona()->getNombreCompleto() . "',false);\" class=\"btn btn-danger\">Eliminar</a>");
+                                echo("<a href=\"javascript:void(0);\" onclick=\"agregarCapacitacion(" . $row['id'] . ",'" . $row['nombre'] . "'," . $instructor->getId() . ",'" . $instructor->getCvePersona()->getNombreCompleto() . "',false);\" class=\"btn btn-danger\"><span class=\"glyphicon glyphicon-trash\"></span> Eliminar</a>");
                             }
                             ?>
                         </td>                                    
