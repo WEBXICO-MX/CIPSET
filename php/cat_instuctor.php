@@ -183,7 +183,7 @@ if (isset($_POST['xAccion'])) {
                                     <td><?php echo($row['especialidad']); ?></td>
                                     <td><?php echo($row['ruta_foto'] != NULL ? "<span class=\"glyphicon glyphicon-eye-open\"  style=\"font-size: 2em; cursor:pointer;\" data-toggle=\"popover\" data-content=\"<img src='../" . $row['ruta_foto'] . "' alt='" . str_replace('"', "'", $row['nombre_completo']) . "' class='img-responsive'/>\" ></span><br/><br/><a data-toggle=\"modal\" data-target=\"#myModal\" data-remote=\"cat_instructor_upload_img.php?id=" . $row['id'] . "\" href=\"javascript:void(0);\">Cambiar foto</a>" : "<a data-toggle=\"modal\" data-target=\"#myModal\" data-remote=\"cat_instructor_upload_img.php?id=" . $row['id'] . "\" href=\"javascript:void(0);\">Subir foto</a>"); ?></td>
                                     <?php
-                                    $sql2 = "SELECT c.NOMBRE AS capacitacion FROM INSTRUCTORES_CAPACITACIONES AS ic INNER JOIN capacitaciones AS c ON c.ID = ic.CVE_CAPACITACION WHERE ic.CVE_INSTRUCTOR = " . $row['id'] . " AND ic.activo = 1 ORDER BY capacitacion";
+                                    $sql2 = "select c.nombre as capacitacion from instructores_capacitaciones as ic inner join capacitaciones as c on c.id = ic.cve_capacitacion where ic.cve_instructor = " . $row['id'] . " and ic.activo = 1 order by capacitacion";
                                     
                                     $rst2 = UtilDB::ejecutaConsulta($sql2);
                                     $msg = "";
