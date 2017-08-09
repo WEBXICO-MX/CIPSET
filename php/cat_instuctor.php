@@ -141,7 +141,7 @@ if (isset($_POST['xAccion'])) {
                         </div>
                         <div class="form-group">
                             <label for="txtExperiencia">Experiencia:</label>
-                            <textarea name="txtExperiencia" id="txtExperiencia" placeholder="Experiencia" class="form-control"><?php echo($e->getExperiencia()); ?></textarea>                            
+                            <textarea name="txtExperiencia" id="txtExperiencia" placeholder="Experiencia" class="form-control" cols="100" rows="15"><?php echo($e->getExperiencia()); ?></textarea>                            
                         </div>
                         <div class="checkbox">
                             <label><input type="checkbox" name="cbxActivo" id="cbxActivo" <?php echo($e->getId() != 0 ? ($e->getActivo() ? "checked" : "") : "checked") ?>/>¿Activo?</label>
