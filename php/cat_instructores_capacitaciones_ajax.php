@@ -11,7 +11,7 @@ require_once '../class/ChromePhp.php';
 
 if (isset($_POST["xAccion"])) {
     if ($_POST["xAccion"] === "grabar") {
-        $ic = new InstructorCapacitacion(new Instructor(isset($_POST['xCveInstructor']) ? ((int) $_POST['xCveInstructor']) : 0),new Capacitacion(isset($_POST['xCveCapacitacion']) ? ((int) $_POST['xCveCapacitacion']) : 0));
+        $ic = new InstructorCapacitacion(new Instructor(isset($_POST['xCveInstructor']) ? ((int) $_POST['xCveInstructor']) : 0), new Capacitacion(isset($_POST['xCveCapacitacion']) ? ((int) $_POST['xCveCapacitacion']) : 0));
         $ic->setActivo($_POST['xSeAgrega']);
         $resultado = $ic->grabar();
         echo($resultado);
@@ -20,7 +20,9 @@ if (isset($_POST["xAccion"])) {
     if ($_POST["xAccion"] === "getTablaCapacitaciones") {
         $instructor = new Instructor(isset($_POST['xCveInstructor']) ? ((int) $_POST['xCveInstructor']) : 0);
         ?>
-        <h3 class="text-center"><strong>Instructor:</strong> <?php echo($instructor->getCvePersona() != NULL ? $instructor->getCvePersona()->getNombreCompleto() : "") ?></h3>
+        <h3 class="text-center"><strong>Instructor:</strong> <span style="color:#286090"><?php echo($instructor->getCvePersona() != NULL ? $instructor->getCvePersona()->getNombreCompleto() : "") ?></span></h3>
+        <h3 class="text-center"><strong>Especialidad:</strong> <span style="color:#286090"><?php echo($instructor->getCvePersona() != NULL ? $instructor->getCveEspecialidad()->getNombre() : "") ?></span></h3>
+        <p>Desde aqui puede agregar o eliminar capacitaciones a un instructor especifico usando los botones "<span style="color:#449D44">Agregar</span>" y "<span style="color:#C9302C">Eliminar</span>".</p>
         <br/>
         <br/>
         <table id="tabla-intructores-capacitaciones" class="table table-bordered table-striped table-hover table-responsive">
