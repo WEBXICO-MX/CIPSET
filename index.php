@@ -20,7 +20,7 @@ $count = 0;
         <div class="container">            
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
-                    <div id="miGaleria" class="carousel slide" data-ride="carousel" data-interval="7000">
+                    <div id="miGaleria" class="carousel slide" data-ride="carousel" data-interval="5000">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
                             <li data-target="#miGaleria" data-slide-to="0" class="active"></li>
